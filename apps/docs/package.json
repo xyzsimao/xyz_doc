@@ -11,11 +11,14 @@
     "check-types": "next typegen && tsc --noEmit"
   },
   "dependencies": {
+    "@orama/core": "^1.2.16",
     "@types/mdx": "^2.0.13",
     "@xyzsimao/ui": "workspace:*",
+    "class-variance-authority": "^0.7.1",
     "d3-force": "^3.0.0",
     "fumadocs-core": "^16.4.6",
     "fumadocs-mdx": "^14.2.4",
+    "fumadocs-twoslash": "^3.1.12",
     "fumadocs-ui": "^16.4.6",
     "lucide-react": "^0.562.0",
     "next": "16.1.0",
@@ -32,6 +35,7 @@
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@tailwindcss/postcss": "^4.1.18",
+    "@types/d3-force": "^3.0.10",
     "@types/node": "^22.15.3",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
