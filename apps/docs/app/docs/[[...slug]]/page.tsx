@@ -12,6 +12,27 @@ import { Card, Cards } from 'fumadocs-ui/components/card'
 
 import { findSiblings } from 'fumadocs-core/page-tree'
 
+import * as Twoslash from 'fumadocs-twoslash/ui'
+import { TypeTable } from 'fumadocs-ui/components/type-table'
+import { Wrapper } from '@/app/components/preview/wrapper'
+import { Mermaid } from '@/app/components/mdx/mermaid'
+// import { Feedback, FeedbackBlock } from '@/components/feedback/client'
+import {
+  onBlockFeedbackAction,
+  onPageFeedbackAction,
+  owner,
+  repo,
+} from '@/lib/github'
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from '@/app/components/ui/hover-card'
+import Link from 'fumadocs-core/link'
+import { Banner } from 'fumadocs-ui/components/banner'
+import { Customisation } from '@/app/components/preview/customisation'
+import { PathUtils } from 'fumadocs-core/source'
+
 function PreviewRenderer({ preview }: { preview: string }): ReactNode {
   if (preview && preview in Preview) {
     const Comp = Preview[preview as keyof typeof Preview]
@@ -45,13 +66,46 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
         {page.data.preview && <PreviewRenderer preview={page.data.preview} />}
         <MDX
           components={getMDXComponents({
-            // this allows you to link to other pages with relative file paths
+            ...Twoslash,
+            a: ({ href, ...props }) => {
+              const found = source.getPageByHref(href ?? '', {
+                dir: PathUtils.dirname(page.path),
+              })
+
+              if (!found) return <Link href={href} {...props} />
+
+              return (
+                <HoverCard>
+                  <HoverCardTrigger
+                    href={
+                      found.hash
+                        ? `${found.page.url}#${found.hash}`
+                        : found.page.url
+                    }
+                    {...props}
+                  >
+                    {props.children}
+                  </HoverCardTrigger>
+                  <HoverCardContent className="text-sm">
+                    <p className="font-medium">{found.page.data.title}</p>
+                    <p className="text-fd-muted-foreground">
+                      {found.page.data.description}
+                    </p>
+                  </HoverCardContent>
+                </HoverCard>
+              )
+            },
+
+            Banner,
+            Mermaid,
+            TypeTable,
+            Wrapper,
+            blockquote: Callout as unknown as FC<ComponentProps<'blockquote'>>,
             DocsCategory: ({ url }) => {
               return <DocsCategory url={url ?? page.url} />
             },
-            blockquote: Callout as unknown as FC<ComponentProps<'blockquote'>>,
-            a: createRelativeLink(source, page),
             Installation,
+            Customisation,
           })}
         />
         {page.data.index ? <DocsCategory url={page.url} /> : null}
