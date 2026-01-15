@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
+import './global.css'
 import { RootProvider } from 'fumadocs-ui/provider/next'
 import { Body } from '@/app/layout.client'
+import { NextProvider } from 'fumadocs-core/framework/next'
+import { TreeContextProvider } from 'fumadocs-ui/contexts/tree'
+import { Provider } from './provider'
+import { source } from '@/lib/source'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -25,12 +29,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        // required styles [!code ++]
-        className="flex flex-col min-h-screen"
-      >
-        <RootProvider>{children}</RootProvider>
-      </body>
+      <Body>
+        <NextProvider>
+          <TreeContextProvider tree={source.getPageTree()}>
+            <Provider>{children}</Provider>
+          </TreeContextProvider>
+        </NextProvider>
+      </Body>
     </html>
   )
 }

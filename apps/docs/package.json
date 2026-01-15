@@ -12,12 +12,14 @@
   },
   "dependencies": {
     "@orama/core": "^1.2.16",
+    "@radix-ui/react-tooltip": "^1.2.8",
     "@types/mdx": "^2.0.13",
     "@xyzsimao/ui": "workspace:*",
     "class-variance-authority": "^0.7.1",
     "d3-force": "^3.0.0",
     "fumadocs-core": "^16.4.6",
     "fumadocs-mdx": "^14.2.4",
+    "fumadocs-openapi": "^10.2.4",
     "fumadocs-twoslash": "^3.1.12",
     "fumadocs-ui": "^16.4.6",
     "lucide-react": "^0.562.0",
@@ -40,7 +42,9 @@
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
     "eslint": "^9.39.1",
+    "shadcn": "3.6.3",
     "tailwindcss": "^4.1.18",
+    "tailwindcss-animate": "^1.0.7",
     "typescript": "5.9.2"
   }
 }
