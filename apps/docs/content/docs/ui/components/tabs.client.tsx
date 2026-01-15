@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import { cn } from '@/lib/cn';
-import { buttonVariants } from '@/app/components/ui/button';
+import { buttonVariants } from '@/components/ui/button'
 
 export function UrlBar() {
   const [url, setUrl] = useState('');

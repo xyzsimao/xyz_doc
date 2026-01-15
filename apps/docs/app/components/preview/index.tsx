@@ -18,7 +18,7 @@ import {
   Folder,
   ImageZoom,
   InlineTOC,
-} from '@/app/components/preview/lazy';
+} from '@/components/preview/lazy'
 import BannerImage from '@/public/banner.png';
 
 export function heading(): ReactNode {

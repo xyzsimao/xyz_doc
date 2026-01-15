@@ -6,6 +6,9 @@
       "@/*": [
         "./*"
       ],
+      "@/components/*": [
+        "./app/components/*"
+      ],
       "fumadocs-mdx:collections/*": [
         ".source/*"
       ]

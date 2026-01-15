@@ -1,5 +1,5 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from 'fumadocs-ui/components/ui/tabs';
-import { CodeBlock } from '@/app/components/code-block';
+import { CodeBlock } from '@/components/code-block'
  
  
 export function Installation({ name }: { name: string }) {

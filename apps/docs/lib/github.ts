@@ -5,7 +5,7 @@ import {
   pageFeedback,
   type ActionResponse,
   type PageFeedback,
-} from '@/app/components/feedback/schema';
+} from '@/components/feedback/schema'
 
 export const repo = 'fumadocs';
 export const owner = 'fuma-nama';

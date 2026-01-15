@@ -23,6 +23,9 @@ importers:
       '@orama/core':
         specifier: ^1.2.16
         version: 1.2.16
+      '@paper-design/shaders-react':
+        specifier: ^0.0.70
+        version: 0.0.70(@types/react@19.2.2)(react@19.2.0)
       '@radix-ui/react-hover-card':
         specifier: ^1.1.15
         version: 1.1.15(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -56,6 +59,9 @@ importers:
       fumadocs-ui:
         specifier: ^16.4.6
         version: 16.4.6(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(fumadocs-core@16.4.6(@orama/core@1.2.16)(@types/react@19.2.2)(lucide-react@0.562.0(react@19.2.0))(next@16.1.0(@babel/core@7.28.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(zod@4.3.5))(next@16.1.0(@babel/core@7.28.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(tailwindcss@4.1.18)
+      hast-util-to-jsx-runtime:
+        specifier: ^2.3.6
+        version: 2.3.6
       lucide-react:
         specifier: ^0.562.0
         version: 0.562.0(react@19.2.0)
@@ -105,6 +111,9 @@ importers:
       '@types/d3-force':
         specifier: ^3.0.10
         version: 3.0.10
+      '@types/hast':
+        specifier: ^3.0.4
+        version: 3.0.4
       '@types/node':
         specifier: ^22.15.3
         version: 22.15.3
@@ -1103,6 +1112,18 @@ packages:
 
   '@orama/oramacore-events-parser@0.0.5':
     resolution: {integrity: sha512-yAuSwog+HQBAXgZ60TNKEwu04y81/09mpbYBCmz1RCxnr4ObNY2JnPZI7HmALbjAhLJ8t5p+wc2JHRK93ubO4w==, tarball: https://registry.npmjs.org/@orama/oramacore-events-parser/-/oramacore-events-parser-0.0.5.tgz}
+
+  '@paper-design/shaders-react@0.0.70':
+    resolution: {integrity: sha512-9DkZXcyehorsZzyWnYV3OOO1i7rF7a5CkasjKJ1h1tLlY3JJLUEX9W+gZz7JgWHyvCimUu0OSq1sbHTb2OntRw==, tarball: https://registry.npmjs.org/@paper-design/shaders-react/-/shaders-react-0.0.70.tgz}
+    peerDependencies:
+      '@types/react': ^18 || ^19
+      react: ^18 || ^19
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+
+  '@paper-design/shaders@0.0.70':
+    resolution: {integrity: sha512-d9LQcmPoEm3+Y6Vuz7cvsnSelfTM5QD63yQ3ddLM7QGYfoSjbQiU38kzjA4O3oCQ6zv23o/IGvGA8k9S/L+kZw==, tarball: https://registry.npmjs.org/@paper-design/shaders/-/shaders-0.0.70.tgz}
 
   '@radix-ui/number@1.1.1':
     resolution: {integrity: sha512-MkKCwxlXTgz6CFoJx3pCwn07GKp36+aZyu/u2Ln2VrA5DcdyCZkASEDBTd8x5whTQQL5CiYf4prXKLcgQdv29g==, tarball: https://registry.npmjs.org/@radix-ui/number/-/number-1.1.1.tgz}
@@ -5778,6 +5799,15 @@ snapshots:
   '@orama/orama@3.1.18': {}
 
   '@orama/oramacore-events-parser@0.0.5': {}
+
+  '@paper-design/shaders-react@0.0.70(@types/react@19.2.2)(react@19.2.0)':
+    dependencies:
+      '@paper-design/shaders': 0.0.70
+      react: 19.2.0
+    optionalDependencies:
+      '@types/react': 19.2.2
+
+  '@paper-design/shaders@0.0.70': {}
 
   '@radix-ui/number@1.1.1': {}
 

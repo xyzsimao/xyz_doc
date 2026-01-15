@@ -4,9 +4,9 @@ import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/mdx-components';
 import type { Metadata } from 'next';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
-import { Installation } from '@/app/components/preview/installation'
+import { Installation } from '@/components/preview/installation'
 import { Callout } from 'fumadocs-ui/components/callout'
-import * as Preview from '@/app/components/preview'
+import * as Preview from '@/components/preview'
 import { type ComponentProps, type FC, type ReactNode } from 'react'
 import { Card, Cards } from 'fumadocs-ui/components/card'
 
@@ -14,8 +14,8 @@ import { findSiblings } from 'fumadocs-core/page-tree'
 
 import * as Twoslash from 'fumadocs-twoslash/ui'
 import { TypeTable } from 'fumadocs-ui/components/type-table'
-import { Wrapper } from '@/app/components/preview/wrapper'
-import { Mermaid } from '@/app/components/mdx/mermaid'
+import { Wrapper } from '@/components/preview/wrapper'
+import { Mermaid } from '@/components/mdx/mermaid'
 // import { Feedback, FeedbackBlock } from '@/components/feedback/client'
 import {
   onBlockFeedbackAction,
@@ -27,10 +27,10 @@ import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from '@/app/components/ui/hover-card'
+} from '@/components/ui/hover-card'
 import Link from 'fumadocs-core/link'
 import { Banner } from 'fumadocs-ui/components/banner'
-import { Customisation } from '@/app/components/preview/customisation'
+import { Customisation } from '@/components/preview/customisation'
 import { PathUtils } from 'fumadocs-core/source'
 
 function PreviewRenderer({ preview }: { preview: string }): ReactNode {

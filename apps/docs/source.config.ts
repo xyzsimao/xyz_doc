@@ -7,7 +7,8 @@ import {
   frontmatterSchema,
   metaSchema,
 } from 'fumadocs-mdx/config'
- 
+import type { ShikiTransformer } from 'shiki'
+import type { ElementContent } from 'hast'
 
 export const docs = defineDocs({
   dir: 'content/docs',
@@ -111,5 +112,64 @@ export const docs = defineDocs({
     },
   },
 })
+
+export const blog = defineCollections({
+  type: 'doc',
+  dir: 'content/blog',
+  schema: frontmatterSchema.extend({
+    author: z.string(),
+    date: z.iso.date().or(z.date()),
+  }),
+  async: true,
+  async mdxOptions(environment) {
+    const { rehypeCodeDefaultOptions } =
+      await import('fumadocs-core/mdx-plugins/rehype-code')
+    const { remarkSteps } =
+      await import('fumadocs-core/mdx-plugins/remark-steps')
+
+    return applyMdxPreset({
+      rehypeCodeOptions: {
+        inline: 'tailing-curly-colon',
+        themes: {
+          light: 'catppuccin-latte',
+          dark: 'catppuccin-mocha',
+        },
+        transformers: [
+          ...(rehypeCodeDefaultOptions.transformers ?? []),
+          transformerEscape(),
+        ],
+      },
+      remarkCodeTabOptions: {
+        parseMdx: true,
+      },
+      remarkNpmOptions: {
+        persist: {
+          id: 'package-manager',
+        },
+      },
+      remarkPlugins: [remarkSteps],
+    })(environment)
+  },
+})
+
+function transformerEscape(): ShikiTransformer {
+  return {
+    name: '@shikijs/transformers:remove-notation-escape',
+    code(hast) {
+      function replace(node: ElementContent) {
+        if (node.type === 'text') {
+          node.value = node.value.replace('[\\!code', '[!code')
+        } else if ('children' in node) {
+          for (const child of node.children) {
+            replace(child)
+          }
+        }
+      }
+
+      replace(hast)
+      return hast
+    },
+  }
+}
 
 export default defineConfig()

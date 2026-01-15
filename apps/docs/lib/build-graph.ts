@@ -1,5 +1,5 @@
 import { source } from '@/lib/source';
-import type { Graph } from '@/app/components/graph-view';
+import type { Graph } from '@/components/graph-view'
 
 export async function buildGraph(): Promise<Graph> {
   const graph: Graph = { links: [], nodes: [] };

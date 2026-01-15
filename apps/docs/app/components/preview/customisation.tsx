@@ -1,4 +1,4 @@
-import { CodeBlock } from '@/app/components/code-block';
+import { CodeBlock } from '@/components/code-block'
 
 export function Customisation() {
   return (
@@ -15,5 +15,5 @@ export function Customisation() {
         }}
       />
     </div>
-  );
+  )
 }

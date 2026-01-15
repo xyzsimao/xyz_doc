@@ -1,4 +1,4 @@
-import { Suggestion } from '@/app/components/not-found'
+import { Suggestion } from '@/components/not-found'
 import { DataSourceId, orama } from '@/lib/orama/client'
 
 export async function getSuggestions(pathname: string): Promise<Suggestion[]> {
