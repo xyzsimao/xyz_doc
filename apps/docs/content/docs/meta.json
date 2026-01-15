@@ -1,3 +1,3 @@
 {
-  "pages": ["ui","cli"]
+  "pages": ["(framework)", "ui", "headless", "mdx", "cli"]
 }
