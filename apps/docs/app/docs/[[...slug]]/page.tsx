@@ -16,6 +16,7 @@ import * as Twoslash from 'fumadocs-twoslash/ui'
 import { TypeTable } from 'fumadocs-ui/components/type-table'
 import { Wrapper } from '@/components/preview/wrapper'
 import { Mermaid } from '@/components/mdx/mermaid'
+import { LLMCopyButton, ViewOptions } from '@/components/ai/page-actions'
 // import { Feedback, FeedbackBlock } from '@/components/feedback/client'
 import {
   onBlockFeedbackAction,
@@ -54,6 +55,20 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
       toc={page.data.toc}
       tableOfContent={{
         style: 'clerk',
+        footer: (
+          <div className="my-3 space-y-3">
+            {/* <LLMCopyButton markdownUrl={`${page.url}.mdx`} /> */}
+            {/* <ViewOptions
+              markdownUrl={`${page.url}.mdx`}
+              githubUrl={`https://github.com/${owner}/${repo}/blob/dev/apps/docs/content/docs/${page.path}`}
+            /> */}
+
+            {/* <Separator />
+            <CopyPage text={markdown} />
+            <EditSource path={page.path} />
+            <ScrollTop /> */}
+          </div>
+        ),
       }}
       full={page.data.full}
     >
