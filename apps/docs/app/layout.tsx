@@ -31,11 +31,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <Body>
-        <NextProvider>
+        <RootProvider>
           <TreeContextProvider tree={source.getPageTree()}>
             <Provider>{children}</Provider>
           </TreeContextProvider>
-        </NextProvider>
+        </RootProvider>
       </Body>
     </html>
   )

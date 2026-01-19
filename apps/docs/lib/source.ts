@@ -5,8 +5,8 @@ import {
   type LoaderPlugin,
   loader,
   multiple,
-} from 'fumadocs-core/source'
-import { lucideIconsPlugin } from 'fumadocs-core/source/lucide-icons'
+} from 'xyzdoc-core/source'
+import { lucideIconsPlugin } from 'xyzdoc-core/source/lucide-icons'
 import { toFumadocsSource } from 'fumadocs-mdx/runtime/server'
 
 export const source = loader({

@@ -19,6 +19,78 @@
       "types": "./dist/breadcrumb.d.ts",
       "import": "./dist/breadcrumb.js"
     },
+    "./toc": {
+      "types": "./dist/toc.d.ts",
+      "import": "./dist/toc.js"
+    },
+    "./content": {
+      "types": "./dist/content/index.d.ts",
+      "import": "./dist/content/index.js"
+    },
+    "./content/*": {
+      "types": "./dist/content/*.d.ts",
+      "import": "./dist/content/*.js"
+    },
+    "./negotiation": {
+      "types": "./dist/negotiation/index.d.ts",
+      "import": "./dist/negotiation/index.js"
+    },
+    "./page-tree": {
+      "types": "./dist/page-tree/index.d.ts",
+      "import": "./dist/page-tree/index.js"
+    },
+    "./search": {
+      "types": "./dist/search/index.d.ts",
+      "import": "./dist/search/index.js"
+    },
+    "./search/*": {
+      "types": "./dist/search/*.d.ts",
+      "import": "./dist/search/*.js"
+    },
+    "./source": {
+      "types": "./dist/source/index.d.ts",
+      "import": "./dist/source/index.js"
+    },
+    "./source/client": {
+      "types": "./dist/source/client/index.d.ts",
+      "import": "./dist/source/client/index.js"
+    },
+    "./source/schema": {
+      "types": "./dist/source/schema.d.ts",
+      "import": "./dist/source/schema.js"
+    },
+    "./source/*": {
+      "types": "./dist/source/plugins/*.d.ts",
+      "import": "./dist/source/plugins/*.js"
+    },
+    "./utils/*": {
+      "types": "./dist/utils/*.d.ts",
+      "import": "./dist/utils/*.js"
+    },
+    "./link": {
+      "types": "./dist/link.d.ts",
+      "import": "./dist/link.js"
+    },
+    "./dynamic-link": {
+      "types": "./dist/dynamic-link.d.ts",
+      "import": "./dist/dynamic-link.js"
+    },
+    "./mdx-plugins": {
+      "types": "./dist/mdx-plugins/index.d.ts",
+      "import": "./dist/mdx-plugins/index.js"
+    },
+    "./mdx-plugins/*": {
+      "types": "./dist/mdx-plugins/*.d.ts",
+      "import": "./dist/mdx-plugins/*.js"
+    },
+    "./i18n": {
+      "types": "./dist/i18n/index.d.ts",
+      "import": "./dist/i18n/index.js"
+    },
+    "./i18n/middleware": {
+      "types": "./dist/i18n/middleware.d.ts",
+      "import": "./dist/i18n/middleware.js"
+    },
     "./highlight": {
       "types": "./dist/highlight/index.d.ts",
       "import": "./dist/highlight/index.js"
@@ -26,18 +98,6 @@
     "./highlight/client": {
       "types": "./dist/highlight/client.d.ts",
       "import": "./dist/highlight/client.js"
-    },
-    "./link": {
-      "types": "./dist/link.d.ts",
-      "import": "./dist/link.js"
-    },
-    "./source": {
-      "types": "./dist/source/index.d.ts",
-      "import": "./dist/source/index.js"
-    },
-    "./page-tree": {
-      "types": "./dist/page-tree/index.d.ts",
-      "import": "./dist/page-tree/index.js"
     },
     "./framework": {
       "types": "./dist/framework/index.d.ts",
