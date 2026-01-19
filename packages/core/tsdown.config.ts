@@ -10,5 +10,7 @@ export default defineConfig({
     'src/source/*',
     'src/{toc,link,breadcrumb,dynamic-link}.tsx',
     'src/page-tree/index.ts',
+    'src/highlight/index.ts',
+    'src/highlight/client.tsx',
   ],
 })

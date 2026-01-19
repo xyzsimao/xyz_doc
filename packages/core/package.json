@@ -15,6 +15,18 @@
   ],
   "type": "module",
   "exports": {
+    "./breadcrumb": {
+      "types": "./dist/breadcrumb.d.ts",
+      "import": "./dist/breadcrumb.js"
+    },
+    "./highlight": {
+      "types": "./dist/highlight/index.d.ts",
+      "import": "./dist/highlight/index.js"
+    },
+    "./highlight/client": {
+      "types": "./dist/highlight/client.d.ts",
+      "import": "./dist/highlight/client.js"
+    },
     "./link": {
       "types": "./dist/link.d.ts",
       "import": "./dist/link.js"
@@ -103,5 +115,61 @@
     "vfile": "^6.0.3",
     "waku": "1.0.0-alpha.1",
     "zod": "^4.3.5"
+  },
+  "peerDependencies": {
+    "@mixedbread/sdk": "^0.46.0",
+    "@orama/core": "1.x.x",
+    "@oramacloud/client": "2.x.x",
+    "@tanstack/react-router": "1.x.x",
+    "@types/react": "*",
+    "algoliasearch": "5.x.x",
+    "lucide-react": "*",
+    "next": "16.x.x",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router": "7.x.x",
+    "waku": "^0.26.0 || ^0.27.0",
+    "zod": "4.x.x"
+  },
+  "peerDependenciesMeta": {
+    "@mixedbread/sdk": {
+      "optional": true
+    },
+    "@types/react": {
+      "optional": true
+    },
+    "@orama/core": {
+      "optional": true
+    },
+    "@oramacloud/client": {
+      "optional": true
+    },
+    "algoliasearch": {
+      "optional": true
+    },
+    "next": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    },
+    "react-router": {
+      "optional": true
+    },
+    "waku": {
+      "optional": true
+    },
+    "@tanstack/react-router": {
+      "optional": true
+    },
+    "lucide-react": {
+      "optional": true
+    },
+    "zod": {
+      "optional": true
+    }
   }
 }
