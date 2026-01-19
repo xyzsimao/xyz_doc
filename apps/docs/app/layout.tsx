@@ -3,11 +3,12 @@ import localFont from "next/font/local";
 import './global.css'
 import { RootProvider } from 'fumadocs-ui/provider/next'
 import { Body } from '@/app/layout.client'
+// import { NextProvider } from 'xyzdoc-core/framework/next'
 import { NextProvider } from 'fumadocs-core/framework/next'
 import { TreeContextProvider } from 'fumadocs-ui/contexts/tree'
 import { Provider } from './provider'
 import { source } from '@/lib/source'
- 
+
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
   variable: '--font-geist-sans',
