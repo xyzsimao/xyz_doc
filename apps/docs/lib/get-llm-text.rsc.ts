@@ -18,16 +18,19 @@ import type { Nodes } from 'hast';
  * still have to add stringify layer from `remark-mdx`.
  */
 export async function getLLMText(page: Page) {
-  if (page.data.type === 'openapi') return '';
-  const tree = await page.data.getMDAST();
-  const tasks: Promise<void>[] = [];
+  // if (page.data.type === 'openapi') return '';
+  const tree = await page.data.getMDAST()
+  const tasks: Promise<void>[] = []
 
   visit(tree, (node) => {
-    if (node.type === 'mdxJsxFlowElement' || node.type === 'mdxFlowExpression') {
+    if (
+      node.type === 'mdxJsxFlowElement' ||
+      node.type === 'mdxFlowExpression'
+    ) {
       const context = {
         React,
         ...getMDXComponents(),
-      };
+      }
       const v = toJsxRuntime(node as Nodes, {
         ...JsxRuntime,
         components: getMDXComponents(),
@@ -45,58 +48,57 @@ export async function getLLMText(page: Page) {
                   ],
                   sourceType: 'module',
                 },
-                context,
-              );
+                context
+              )
             },
             evaluateProgram(program) {
-              return evaluateEstreeExpression(program, context);
+              return evaluateEstreeExpression(program, context)
             },
-          };
+          }
         },
         development: false,
-      });
+      })
 
-      async function task() {
-        const value = await renderToString(v).catch(() => '');
+      // async function task() {
+      //   const value = await renderToString(v).catch(() => '')
 
-        Object.assign(node, {
-          type: 'text',
-          value,
-        });
-      }
+      //   Object.assign(node, {
+      //     type: 'text',
+      //     value,
+      //   })
+      // }
 
-      tasks.push(task());
+      // tasks.push(task())
     }
-  });
+  })
 
-  await Promise.all(tasks);
-  return JSON.stringify(tree);
+  await Promise.all(tasks)
+  return JSON.stringify(tree)
 }
 
 interface LLMStorage {
-  isLLM: boolean;
+  isLLM: boolean
 }
 
-const llmStorage = new AsyncLocalStorage<LLMStorage>({
-  name: 'llm-storage',
-  defaultValue: {
-    isLLM: false,
-  },
-});
+// const llmStorage = new AsyncLocalStorage<LLMStorage>({
+//   name: 'llm-storage',
+//   defaultValue: {
+//     isLLM: false,
+//   },
+// })
 
-async function renderToString(node: ReactNode): Promise<string> {
-  const { renderToReadableStream } = await import('react-dom/server.edge');
-  return llmStorage.run({ isLLM: true }, async () => {
-    const stream = await renderToReadableStream(node);
-    await stream.allReady;
-
-    const res = new Response(stream);
-    return res.text();
-  });
-}
+// async function renderToString(node: ReactNode): Promise<string> {
+//   // const { renderToReadableStream } = await import('react-dom/server.edge');
+//   // return llmStorage.run({ isLLM: true }, async () => {
+//   //   const stream = await renderToReadableStream(node);
+//   //   await stream.allReady;
+//   //   const res = new Response(stream);
+//   //   return res.text();
+//   // });
+// }
 
 export function isLLM() {
-  return llmStorage.getStore()!.isLLM;
+  // return llmStorage.getStore()!.isLLM;
 }
 
 function evaluateEstreeExpression(astNode: Program, context = {}) {

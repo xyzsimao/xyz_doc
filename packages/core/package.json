@@ -19,6 +19,14 @@
       "types": "./dist/link.d.ts",
       "import": "./dist/link.js"
     },
+    "./source": {
+      "types": "./dist/source/index.d.ts",
+      "import": "./dist/source/index.js"
+    },
+    "./page-tree": {
+      "types": "./dist/page-tree/index.d.ts",
+      "import": "./dist/page-tree/index.js"
+    },
     "./framework": {
       "types": "./dist/framework/index.d.ts",
       "import": "./dist/framework/index.js"

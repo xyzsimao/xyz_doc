@@ -10,7 +10,7 @@ import * as Preview from '@/components/preview'
 import { type ComponentProps, type FC, type ReactNode } from 'react'
 import { Card, Cards } from 'fumadocs-ui/components/card'
 
-import { findSiblings } from 'fumadocs-core/page-tree'
+import { findSiblings } from 'xyzdoc-core/page-tree'
 
 import * as Twoslash from 'fumadocs-twoslash/ui'
 import { TypeTable } from 'fumadocs-ui/components/type-table'

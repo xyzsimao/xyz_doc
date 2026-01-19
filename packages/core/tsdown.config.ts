@@ -5,8 +5,10 @@ export default defineConfig({
   fixedExtension: false,
   target: 'es2022',
   format: 'esm',
-    entry: [
+  entry: [
     'src/framework/*',
+    'src/source/*',
     'src/{toc,link,breadcrumb,dynamic-link}.tsx',
+    'src/page-tree/index.ts',
   ],
-});
+})

@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@orama/core": "^1.2.16",
+    "@orama/orama": "^3.1.18",
     "@paper-design/shaders-react": "^0.0.70",
     "@radix-ui/react-hover-card": "^1.1.15",
     "@radix-ui/react-tooltip": "^1.2.8",
@@ -19,6 +20,9 @@
     "@xyzsimao/ui": "workspace:*",
     "class-variance-authority": "^0.7.1",
     "d3-force": "^3.0.0",
+    "estree-util-build-jsx": "^3.0.1",
+    "estree-util-to-js": "^2.0.0",
+    "feed": "^5.1.0",
     "xyzdoc-core": "workspace:*",
     "fumadocs-core": "^16.4.6",
     "fumadocs-mdx": "^14.2.4",
@@ -35,6 +39,7 @@
     "react-dom": "^19.2.0",
     "react-force-graph-2d": "^1.29.0",
     "rehype-katex": "^7.0.1",
+    "unist-util-visit": "^5.0.0",
     "shiki": "^3.21.0",
     "tailwind-merge": "^3.4.0",
     "zod": "^4.3.5"
@@ -44,6 +49,7 @@
     "@repo/typescript-config": "workspace:*",
     "@tailwindcss/postcss": "^4.1.18",
     "@types/d3-force": "^3.0.10",
+    "@types/estree": "^1.0.8",
     "@types/hast": "^3.0.4",
     "@types/node": "^22.15.3",
     "@types/react": "19.2.2",

@@ -7,7 +7,7 @@ import type { Card } from 'fumadocs-ui/components/card';
 import type { DocsLayoutProps } from 'fumadocs-ui/layouts/docs';
 import type { ComponentProps, ComponentPropsWithoutRef } from 'react';
 import type { DocsPageProps } from 'fumadocs-ui/layouts/docs/page';
-import type { AutoTypeTable } from 'fumadocs-typescript/ui';
+// import type { AutoTypeTable } from 'fumadocs-typescript/ui';
 import type { RootProviderProps } from 'fumadocs-ui/provider/base';
 
 export type AccordionsProps = Omit<
@@ -70,7 +70,7 @@ export type BreadcrumbProps = Omit<
 
 export type FooterProps = Omit<NonNullable<DocsPageProps['footer']>, keyof ComponentProps<'div'>>;
 
-export type AutoTypeTableProps = ComponentPropsWithoutRef<typeof AutoTypeTable>;
+// export type AutoTypeTableProps = ComponentPropsWithoutRef<typeof AutoTypeTable>;
 
 export type SearchProps = Required<RootProviderProps>['search'];
 
