@@ -8,7 +8,7 @@ export function Customisation() {
         For advanced customisation that supported options cannot suffice.
       </p>
       <CodeBlock
-        code="npx @fumadocs/cli@latest customise"
+        code="npx @xyzdoc/cli@latest customise"
         lang="bash"
         wrapper={{
           className: 'my-0',

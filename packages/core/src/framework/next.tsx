@@ -1,5 +1,5 @@
 'use client';
-import { FrameworkProvider } from 'xyzdoc-core/framework/index'
+import { Framework, FrameworkProvider } from './index'
 
 import type { ReactNode } from 'react';
 import { useParams, usePathname, useRouter } from 'next/navigation';

@@ -9,10 +9,10 @@ import {
   SearchDialogList,
   SearchDialogOverlay,
   type SharedProps,
-} from 'fumadocs-ui/components/dialog/search';
-import { useDocsSearch } from 'fumadocs-core/search/client';
+} from 'xyzdoc-ui/components/dialog/search';
+import { useDocsSearch } from 'xyzdoc-core/search/client';
 import { create } from '@orama/orama';
-import { useI18n } from 'fumadocs-ui/contexts/i18n';
+import { useI18n } from 'xyzdoc-ui/contexts/i18n';
 
 function initOrama() {
   return create({

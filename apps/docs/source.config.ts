@@ -6,7 +6,7 @@ import {
   defineDocs,
   frontmatterSchema,
   metaSchema,
-} from 'fumadocs-mdx/config'
+} from 'xyzdoc-mdx/config'
 import type { ShikiTransformer } from 'shiki'
 import type { ElementContent } from 'hast'
 
@@ -34,9 +34,9 @@ export const docs = defineDocs({
     // async: true,
     async mdxOptions(environment) {
       const { rehypeCodeDefaultOptions } =
-        await import('fumadocs-core/mdx-plugins/rehype-code')
+        await import('xyzdoc-core/mdx-plugins/rehype-code')
       const { remarkStructureDefaultOptions } =
-        await import('fumadocs-core/mdx-plugins/remark-structure')
+        await import('xyzdoc-core/mdx-plugins/remark-structure')
       // const { remarkSteps } =
       //   await import('fumadocs-core/mdx-plugins/remark-steps')
       // const { remarkFeedbackBlock } =
@@ -123,9 +123,9 @@ export const blog = defineCollections({
   async: true,
   async mdxOptions(environment) {
     const { rehypeCodeDefaultOptions } =
-      await import('fumadocs-core/mdx-plugins/rehype-code')
+      await import('xyzdoc-core/mdx-plugins/rehype-code')
     const { remarkSteps } =
-      await import('fumadocs-core/mdx-plugins/remark-steps')
+      await import('xyzdoc-core/mdx-plugins/remark-steps')
 
     return applyMdxPreset({
       rehypeCodeOptions: {

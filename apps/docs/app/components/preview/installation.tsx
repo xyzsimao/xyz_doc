@@ -1,4 +1,4 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from 'fumadocs-ui/components/ui/tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from 'xyzdoc-ui/components/ui/tabs';
 import { CodeBlock } from '@/components/code-block'
  
  
@@ -24,7 +24,7 @@ export function Installation({ name }: { name: string }) {
       </TabsList>
 
       <TabsContent value="fumadocs-cli">
-        <CodeBlock code={`npx @fumadocs/cli@latest add ${name}`} lang="bash" />
+        <CodeBlock code={`npx @xyzdoc/cli@latest add ${name}`} lang="bash" />
       </TabsContent>
     </Tabs>
   );

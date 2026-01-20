@@ -66,16 +66,27 @@ export default async function mdx(
       return mergeConfig(config, {
         resolve: {
           noExternal: [
+            'xyzdoc-core',
+            'xyzdoc-ui',
             'fumadocs-core',
             'fumadocs-ui',
             'fumadocs-openapi',
             '@fumadocs/base-ui',
             '@fumadocs/ui',
+            '@xyzdoc/ui',
           ],
           // only dedupe for public, non-transitive libs
-          dedupe: ['fumadocs-core', 'fumadocs-ui', 'fumadocs-openapi', '@fumadocs/base-ui'],
+          dedupe: [
+            '@xyzdoc/ui',
+            'xyzdoc-core',
+            'xyzdoc-ui',
+            'fumadocs-core',
+            'fumadocs-ui',
+            'fumadocs-openapi',
+            '@fumadocs/base-ui',
+          ],
         },
-      } satisfies UserConfig);
+      } satisfies UserConfig)
     },
     async buildStart() {
       await core.emit({ write: true });

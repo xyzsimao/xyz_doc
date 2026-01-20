@@ -1,5 +1,5 @@
 import { source } from '@/lib/source'
-import { DocsLayout } from 'fumadocs-ui/layouts/docs'
+import { DocsLayout } from 'xyzdoc-ui/layouts/docs'
 import { baseOptions, linkItems, logo } from '@/lib/layout.shared'
 import { getSection } from '@/lib/source/navigation'
  

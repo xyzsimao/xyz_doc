@@ -143,7 +143,7 @@ function Aesthetics() {
         </p>
         <p className="mb-4">Pro designer? Customise the theme using Fumadocs CLI.</p>
         <CodeBlock
-          code={`pnpm dlx @fumadocs/cli customise\n\n> Choose a layout to customise...`}
+          code={`pnpm dlx @xyzdoc/cli customise\n\n> Choose a layout to customise...`}
           lang="bash"
         />
       </div>
@@ -448,7 +448,7 @@ function ForEngineers() {
               description: 'Use MDX in your React framework elegantly.',
             },
             {
-              name: 'fumadocs-core',
+              name: 'xyzdoc-core',
               description: 'Headless library for building docs + handling content.',
             },
             {
@@ -513,7 +513,7 @@ function ForEngineers() {
             title: 'Fumadocs MDX',
           }}
           code={`
-import { loader } from 'fumadocs-core/source';
+import { loader } from 'xyzdoc-core/source';
 import { docs } from 'fumadocs-mdx:collections/server';
 
 export const source = loader({

@@ -1,15 +1,15 @@
-import { HomeLayout } from 'fumadocs-ui/layouts/home';
-import { baseOptions, linkItems } from '@/lib/layout.shared';
+import { HomeLayout } from 'xyzdoc-ui/layouts/home'
+import { baseOptions, linkItems } from '@/lib/layout.shared'
 import {
   NavbarMenu,
   NavbarMenuContent,
   NavbarMenuLink,
   NavbarMenuTrigger,
-} from 'fumadocs-ui/layouts/home/navbar';
+} from 'xyzdoc-ui/layouts/home/navbar'
 import Link from 'xyzdoc-core/link'
-import Image from 'next/image';
-import Preview from '@/public/banner.png';
-import { Book, ComponentIcon, Pencil, PlusIcon, Server } from 'lucide-react';
+import Image from 'next/image'
+import Preview from '@/public/banner.png'
+import { Book, ComponentIcon, Pencil, PlusIcon, Server } from 'lucide-react'
 
 export default function Layout({ children }: LayoutProps<'/'>) {
   return (
@@ -49,7 +49,8 @@ export default function Layout({ children }: LayoutProps<'/'>) {
                       alt="Perview"
                       className="rounded-t-lg object-cover"
                       style={{
-                        maskImage: 'linear-gradient(to bottom,white 60%,transparent)',
+                        maskImage:
+                          'linear-gradient(to bottom,white 60%,transparent)',
                       }}
                     />
                   </div>
@@ -59,7 +60,10 @@ export default function Layout({ children }: LayoutProps<'/'>) {
                   </p>
                 </NavbarMenuLink>
 
-                <NavbarMenuLink href="/docs/ui/components" className="lg:col-start-2">
+                <NavbarMenuLink
+                  href="/docs/ui/components"
+                  className="lg:col-start-2"
+                >
                   <ComponentIcon className="bg-fd-primary text-fd-primary-foreground p-1 mb-2 rounded-md" />
                   <p className="font-medium">Components</p>
                   <p className="text-fd-muted-foreground text-sm">
@@ -71,11 +75,15 @@ export default function Layout({ children }: LayoutProps<'/'>) {
                   <Server className="bg-fd-primary text-fd-primary-foreground p-1 mb-2 rounded-md" />
                   <p className="font-medium">OpenAPI</p>
                   <p className="text-fd-muted-foreground text-sm">
-                    Generate interactive playgrounds and docs for your OpenAPI schema.
+                    Generate interactive playgrounds and docs for your OpenAPI
+                    schema.
                   </p>
                 </NavbarMenuLink>
 
-                <NavbarMenuLink href="/docs/markdown" className="lg:col-start-3 lg:row-start-1">
+                <NavbarMenuLink
+                  href="/docs/markdown"
+                  className="lg:col-start-3 lg:row-start-1"
+                >
                   <Pencil className="bg-fd-primary text-fd-primary-foreground p-1 mb-2 rounded-md" />
                   <p className="font-medium">Markdown</p>
                   <p className="text-fd-muted-foreground text-sm">
@@ -103,5 +111,5 @@ export default function Layout({ children }: LayoutProps<'/'>) {
     >
       {children}
     </HomeLayout>
-  );
+  )
 }

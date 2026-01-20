@@ -1,6 +1,6 @@
 'use client';
 import { cn } from '@/lib/cn';
-import { buttonVariants } from 'fumadocs-ui/components/ui/button';
+import { buttonVariants } from 'xyzdoc-ui/components/ui/button';
 import { MessageSquare, ThumbsDown, ThumbsUp } from 'lucide-react';
 import {
   ReactNode,
@@ -10,11 +10,11 @@ import {
   useState,
   useTransition,
 } from 'react';
-import { Collapsible, CollapsibleContent } from 'fumadocs-ui/components/ui/collapsible';
+import { Collapsible, CollapsibleContent } from 'xyzdoc-ui/components/ui/collapsible';
 import { cva } from 'class-variance-authority';
 import { usePathname } from 'next/navigation';
-import { Popover, PopoverContent, PopoverTrigger } from 'fumadocs-ui/components/ui/popover';
-import type { FeedbackBlockProps } from 'fumadocs-core/mdx-plugins/remark-feedback-block';
+import { Popover, PopoverContent, PopoverTrigger } from 'xyzdoc-ui/components/ui/popover';
+import type { FeedbackBlockProps } from 'xyzdoc-core/mdx-plugins/remark-feedback-block';
 import {
   actionResponse,
   blockFeedback,

@@ -4,7 +4,7 @@ const external = ['next', 'typescript', 'bun'];
 
 const noExternal = [
   // TODO: remove this when the min `fumadocs-core` version is above 16.2.3
-  'fumadocs-core/source/schema',
+  'xyzdoc-core/source/schema',
 ];
 
 export default defineConfig([

@@ -1,5 +1,5 @@
-import * as Base from 'fumadocs-ui/components/codeblock';
-import { highlight } from 'fumadocs-core/highlight';
+import * as Base from 'xyzdoc-ui/components/codeblock';
+import { highlight } from 'xyzdoc-core/highlight';
 import { type HTMLAttributes } from 'react';
 
 export async function CodeBlock({

@@ -2,9 +2,9 @@
 import { useMemo, useState } from 'react';
 import { Check, ChevronDown, Copy, ExternalLinkIcon, MessageCircleIcon } from 'lucide-react';
 import { cn } from '@/lib/cn';
-import { useCopyButton } from 'fumadocs-ui/utils/use-copy-button';
-import { buttonVariants } from 'fumadocs-ui/components/ui/button';
-import { Popover, PopoverContent, PopoverTrigger } from 'fumadocs-ui/components/ui/popover';
+import { useCopyButton } from 'xyzdoc-ui/utils/use-copy-button';
+import { buttonVariants } from 'xyzdoc-ui/components/ui/button';
+import { Popover, PopoverContent, PopoverTrigger } from 'xyzdoc-ui/components/ui/popover';
 import { cva } from 'class-variance-authority';
 
 const cache = new Map<string, string>();

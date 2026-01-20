@@ -1,8 +1,8 @@
 import { createProcessor } from '@mdx-js/mdx';
 import { VFile } from 'vfile';
 import { remarkInclude } from '@/loaders/mdx/remark-include';
-import type { StructuredData } from 'fumadocs-core/mdx-plugins';
-import type { TOCItemType } from 'fumadocs-core/toc';
+import type { StructuredData } from 'xyzdoc-core/mdx-plugins';
+import type { TOCItemType } from 'xyzdoc-core/toc';
 import type { FC } from 'react';
 import type { MDXProps } from 'mdx/types';
 import { type PostprocessOptions, remarkPostprocess } from '@/loaders/mdx/remark-postprocess';

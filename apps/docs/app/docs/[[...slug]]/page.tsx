@@ -1,19 +1,24 @@
 import { source } from '@/lib/source';
-import { DocsBody, DocsDescription, DocsPage, DocsTitle } from 'fumadocs-ui/layouts/docs/page';
-import { notFound } from 'next/navigation';
-import { getMDXComponents } from '@/mdx-components';
-import type { Metadata } from 'next';
-import { createRelativeLink } from 'fumadocs-ui/mdx';
+import {
+  DocsBody,
+  DocsDescription,
+  DocsPage,
+  DocsTitle,
+} from 'xyzdoc-ui/layouts/docs/page'
+import { notFound } from 'next/navigation'
+import { getMDXComponents } from '@/mdx-components'
+import type { Metadata } from 'next'
+import { createRelativeLink } from 'xyzdoc-ui/mdx'
 import { Installation } from '@/components/preview/installation'
-import { Callout } from 'fumadocs-ui/components/callout'
+import { Callout } from 'xyzdoc-ui/components/callout'
 import * as Preview from '@/components/preview'
 import { type ComponentProps, type FC, type ReactNode } from 'react'
-import { Card, Cards } from 'fumadocs-ui/components/card'
+import { Card, Cards } from 'xyzdoc-ui/components/card'
 
 import { findSiblings } from 'xyzdoc-core/page-tree'
 
 import * as Twoslash from 'fumadocs-twoslash/ui'
-import { TypeTable } from 'fumadocs-ui/components/type-table'
+import { TypeTable } from 'xyzdoc-ui/components/type-table'
 import { Wrapper } from '@/components/preview/wrapper'
 import { Mermaid } from '@/components/mdx/mermaid'
 import { LLMCopyButton, ViewOptions } from '@/components/ai/page-actions'
@@ -29,10 +34,10 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from '@/components/ui/hover-card'
-import Link from 'fumadocs-core/link'
-import { Banner } from 'fumadocs-ui/components/banner'
+import Link from 'xyzdoc-core/link'
+import { Banner } from 'xyzdoc-ui/components/banner'
 import { Customisation } from '@/components/preview/customisation'
-import { PathUtils } from 'fumadocs-core/source'
+import { PathUtils } from 'xyzdoc-core/source'
 
 function PreviewRenderer({ preview }: { preview: string }): ReactNode {
   if (preview && preview in Preview) {
