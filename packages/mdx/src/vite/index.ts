@@ -57,7 +57,7 @@ export default async function mdx(
   );
 
   return {
-    name: 'fumadocs-mdx',
+    name: 'xyzdoc-mdx',
     // needed, otherwise other plugins will be executed before our `transform`.
     enforce: 'pre',
     config(config) {

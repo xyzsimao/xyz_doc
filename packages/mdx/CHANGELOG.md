@@ -104,7 +104,7 @@
 
   ```ts
   // source.config.ts
-  import { defineCollections, applyMdxPreset } from "fumadocs-mdx/config";
+  import { defineCollections, applyMdxPreset } from "xyzdoc-mdx/config";
   import { myPlugin } from "./remark-plugin";
 
   export const blog = defineCollections({
@@ -123,8 +123,8 @@
 
   ```ts
   // source.config.ts
-  import { defineConfig } from "fumadocs-mdx/config";
-  import lastModified from "fumadocs-mdx/plugins/last-modified";
+  import { defineConfig } from "xyzdoc-mdx/config";
+  import lastModified from "xyzdoc-mdx/plugins/last-modified";
 
   export default defineConfig({
     plugins: [lastModified()],
@@ -137,7 +137,7 @@
 
   ```ts
   // source.config.ts
-  import { defineDocs } from "fumadocs-mdx/config";
+  import { defineDocs } from "xyzdoc-mdx/config";
 
   export const docs = defineDocs({
     dir: "content/guides",
@@ -153,7 +153,7 @@
 
   ```ts
   // source.config.ts
-  import { defineDocs } from "fumadocs-mdx/config";
+  import { defineDocs } from "xyzdoc-mdx/config";
 
   export const docs = defineDocs({
     docs: {
@@ -243,7 +243,7 @@
 
 ### Major Changes
 
-- 8d0c164: **Move `createMDXSource` and `resolveFiles` from `fumadocs-mdx` to `fumadocs-mdx/runtime/next`**
+- 8d0c164: **Move `createMDXSource` and `resolveFiles` from `xyzdoc-mdx` to `xyzdoc-mdx/runtime/next`**
 - 3caa5cd: **Vite: move `source.generated.ts` to `.source/index.ts`**
 
   **Why:**
@@ -257,7 +257,7 @@
 
 ### Minor Changes
 
-- 29ce826: Support JSON Schema plugin (`fumadocs-mdx/plugins/json-schema`)
+- 29ce826: Support JSON Schema plugin (`xyzdoc-mdx/plugins/json-schema`)
 - 3caa5cd: **Support Plugins API**
 
   Fumadocs MDX is mostly a bundler plugin meant to be used with tools like Vite and Turbopack.
@@ -345,7 +345,7 @@
 ### Patch Changes
 
 - da095ac: Refactor internal export paths
-- 854d4ef: Export `postInstall()` function from `fumadocs-mdx/vite`
+- 854d4ef: Export `postInstall()` function from `xyzdoc-mdx/vite`
 - Updated dependencies [982aed6]
   - fumadocs-core@15.7.13
 
@@ -845,7 +845,7 @@
   A `source.config.ts` is now required.
 
   ```ts
-  import { defineDocs, defineConfig } from "fumadocs-mdx/config";
+  import { defineDocs, defineConfig } from "xyzdoc-mdx/config";
 
   export const { docs, meta } = defineDocs();
 
@@ -1248,7 +1248,7 @@
 
   `next-docs-ui` -> `fumadocs-ui`
 
-  `next-docs-mdx` -> `fumadocs-mdx`
+  `next-docs-mdx` -> `xyzdoc-mdx`
 
   `@fuma-docs/openapi` -> `fumadocs-openapi`
 

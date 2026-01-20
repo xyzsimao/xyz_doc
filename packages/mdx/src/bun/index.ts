@@ -23,7 +23,7 @@ export function createMdxPlugin(options: MdxPluginOptions = {}): BunPlugin {
   } = options;
 
   return {
-    name: 'bun-plugin-fumadocs-mdx',
+    name: 'bun-plugin-xyzdoc-mdx',
     async setup(build) {
       const importPath = pathToFileURL(configPath).href;
       const core = createCore({
