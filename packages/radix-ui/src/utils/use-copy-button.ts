@@ -1,1 +1,1 @@
-export * from '@fumadocs/ui/hooks/use-copy-button';
+export * from '@xyzdoc/ui/hooks/use-copy-button';

@@ -2,10 +2,10 @@
 
 import { Check, Link as LinkIcon } from 'lucide-react';
 import { ComponentProps, type ReactNode, useEffect, useRef, useState } from 'react';
-import { cn } from '@fumadocs/ui/cn';
-import { useCopyButton } from '@fumadocs/ui/hooks/use-copy-button';
+import { cn } from '@xyzdoc/ui/cn';
+import { useCopyButton } from '@xyzdoc/ui/hooks/use-copy-button';
 import { buttonVariants } from '@/components/ui/button';
-import { mergeRefs } from '@fumadocs/ui/merge-refs';
+import { mergeRefs } from '@xyzdoc/ui/merge-refs';
 import {
   Accordion as Root,
   AccordionContent,

@@ -14,9 +14,9 @@ import {
 } from 'react';
 import Link, { type LinkProps } from 'xyzdoc-core/link';
 import { useOnChange } from 'xyzdoc-core/utils/use-on-change';
-import { cn } from '@fumadocs/ui/cn';
+import { cn } from '@xyzdoc/ui/cn';
 import { ScrollArea, type ScrollAreaProps, ScrollViewport } from '@/components/ui/scroll-area';
-import { isActive } from '@fumadocs/ui/urls';
+import { isActive } from '@xyzdoc/ui/urls';
 import {
   Collapsible,
   CollapsibleContent,

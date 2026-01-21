@@ -72,7 +72,7 @@ export default async function mdx(
             'fumadocs-ui',
             'fumadocs-openapi',
             '@fumadocs/base-ui',
-            '@fumadocs/ui',
+            '@xyzdoc/ui',
             '@xyzdoc/ui',
           ],
           // only dedupe for public, non-transitive libs

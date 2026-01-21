@@ -13,18 +13,18 @@ import {
 } from 'react';
 import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'xyzdoc-core/link';
-import { cn } from '@fumadocs/ui/cn';
+import { cn } from '@xyzdoc/ui/cn';
 import { useI18n } from '@/contexts/i18n';
 import { useTreeContext, useTreePath } from '@/contexts/tree';
 import type * as PageTree from 'xyzdoc-core/page-tree';
 import { usePathname } from 'xyzdoc-core/framework';
 import { type BreadcrumbOptions, getBreadcrumbItemsFromPath } from 'xyzdoc-core/breadcrumb';
-import { isActive } from '@fumadocs/ui/urls';
+import { isActive } from '@xyzdoc/ui/urls';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { useTOCItems } from '@/components/toc';
 import { useActiveAnchor } from 'xyzdoc-core/toc';
 import { LayoutContext } from '../client';
-import { useFooterItems } from '@fumadocs/ui/hooks/use-footer-items';
+import { useFooterItems } from '@xyzdoc/ui/hooks/use-footer-items';
 
 const TocPopoverContext = createContext<{
   open: boolean;

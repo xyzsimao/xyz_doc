@@ -6,7 +6,7 @@
 
 - Updated dependencies [ea57dbf]
   - fumadocs-core@16.4.6
-  - @fumadocs/ui@16.4.6
+  - @xyzdoc/ui@16.4.6
 
 ## 16.4.5
 
@@ -14,7 +14,7 @@
 
 - 9f06196: fix `footer.children` props
   - fumadocs-core@16.4.5
-  - @fumadocs/ui@16.4.5
+  - @xyzdoc/ui@16.4.5
 
 ## 16.4.4
 
@@ -23,7 +23,7 @@
 - c804ac6: expose `useAutoScroll()`
 - Updated dependencies [cdc97e0]
   - fumadocs-core@16.4.4
-  - @fumadocs/ui@16.4.4
+  - @xyzdoc/ui@16.4.4
 
 ## 16.4.3
 
@@ -33,7 +33,7 @@
 - Updated dependencies [f5dcb7c]
 - Updated dependencies [7e08b2f]
   - fumadocs-core@16.4.3
-  - @fumadocs/ui@16.4.3
+  - @xyzdoc/ui@16.4.3
 
 ## 16.4.2
 
@@ -45,14 +45,14 @@
 - Updated dependencies [446631d]
 - Updated dependencies [b16a32f]
   - fumadocs-core@16.4.2
-  - @fumadocs/ui@16.4.2
+  - @xyzdoc/ui@16.4.2
 
 ## 16.4.1
 
 ### Patch Changes
 
 - Updated dependencies [0a3adb8]
-  - @fumadocs/ui@16.4.1
+  - @xyzdoc/ui@16.4.1
   - fumadocs-core@16.4.1
 
 ## 16.4.0
@@ -62,14 +62,14 @@
 - da98fe2: Support `onSelect` prop in `<SearchDialog />` component
 - Updated dependencies [a3b7919]
   - fumadocs-core@16.4.0
-  - @fumadocs/ui@16.4.0
+  - @xyzdoc/ui@16.4.0
 
 ## 16.3.2
 
 ### Patch Changes
 
 - 7c78045: Support custom renderer for `title` in layouts
-  - @fumadocs/ui@16.3.2
+  - @xyzdoc/ui@16.3.2
   - fumadocs-core@16.3.2
 
 ## 16.3.1
@@ -78,7 +78,7 @@
 
 - f398e36: Improve sidebar dropdown
   - fumadocs-core@16.3.1
-  - @fumadocs/ui@16.3.1
+  - @xyzdoc/ui@16.3.1
 
 ## 16.3.0
 
@@ -90,7 +90,7 @@
 
 - Updated dependencies [a69b060]
   - fumadocs-core@16.3.0
-  - @fumadocs/ui@16.3.0
+  - @xyzdoc/ui@16.3.0
 
 ## 16.2.5
 

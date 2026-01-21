@@ -24,8 +24,8 @@ const installables = new Map<
 const forwardables = new Map<string, string>();
 
 /**
- * - transform import to `@fumadocs/ui` into sub component references, or forward to upstream package instead.
- * - when importing files from upstream package that's forwarded from `@fumadocs/ui` (e.g. contexts), they will be treated as direct imports to `@fumadocs/ui`.
+ * - transform import to `@xyzdoc/ui` into sub component references, or forward to upstream package instead.
+ * - when importing files from upstream package that's forwarded from `@xyzdoc/ui` (e.g. contexts), they will be treated as direct imports to `@xyzdoc/ui`.
  */
 export function resolveForwardedAPIs(
   ref: SourceReference,
@@ -34,7 +34,7 @@ export function resolveForwardedAPIs(
 ): Reference | undefined {
   const renameDirs: [ui: string, upstream: string][] = [['hooks', 'utils']];
 
-  if (ref.type === 'dependency' && ref.dep === '@fumadocs/ui') {
+  if (ref.type === 'dependency' && ref.dep === '@xyzdoc/ui') {
     let specifier = ref.specifier;
     if (installables.has(specifier)) {
       const { comp, file } = installables.get(specifier)!;
@@ -51,7 +51,7 @@ export function resolveForwardedAPIs(
     specifier =
       upstreamPackage +
       specifier
-        .slice('@fumadocs/ui'.length)
+        .slice('@xyzdoc/ui'.length)
         .split('/')
         .map((v) => {
           for (const [ui, upstream] of renameDirs) {
@@ -85,7 +85,7 @@ export function resolveForwardedAPIs(
       return resolveForwardedAPIs(
         {
           type: 'dependency',
-          dep: '@fumadocs/ui',
+          dep: '@xyzdoc/ui',
           specifier: forwarded,
         },
         upstreamPackage,
@@ -221,14 +221,14 @@ function removeExtname(file: string) {
 
 for (const comp of registry.components) {
   for (const file of comp.files) {
-    installables.set(`@fumadocs/ui/${removeExtname(file.path).replaceAll('\\', '/')}`, {
+    installables.set(`@xyzdoc/ui/${removeExtname(file.path).replaceAll('\\', '/')}`, {
       comp,
       file,
     });
   }
 }
 
-forwardables.set('i18n.tsx', '@fumadocs/ui/i18n');
+forwardables.set('i18n.tsx', '@xyzdoc/ui/i18n');
 for await (const file of new Glob('{contexts,components,hooks}/**/*').scan(srcDir)) {
-  forwardables.set(file, `@fumadocs/ui/${removeExtname(file)}`);
+  forwardables.set(file, `@xyzdoc/ui/${removeExtname(file)}`);
 }

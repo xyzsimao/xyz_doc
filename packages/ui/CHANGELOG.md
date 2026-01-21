@@ -1,4 +1,4 @@
-# @fumadocs/ui
+# @xyzdoc/ui
 
 ## 16.4.6
 

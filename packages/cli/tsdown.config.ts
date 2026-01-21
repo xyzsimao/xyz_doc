@@ -4,7 +4,8 @@ import { createConfigSchema } from './src/config';
 import { z } from 'zod';
 
 export default defineConfig({
-  entry: ['./src/index.ts', './src/build/index.ts'],
+  entry: ['./src/index.ts'],
+  //entry: ['./src/index.ts', './src/build/index.ts'],
   format: 'esm',
   dts: true,
   fixedExtension: false,

@@ -1,6 +1,6 @@
 'use client';
 import Link, { type LinkProps } from 'xyzdoc-core/link';
-import { cn } from '@fumadocs/ui/cn';
+import { cn } from '@xyzdoc/ui/cn';
 import {
   NavigationMenuContent,
   type NavigationMenuContentProps,

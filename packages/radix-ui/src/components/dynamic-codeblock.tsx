@@ -6,7 +6,7 @@ import type {
   HighlightOptionsThemes,
 } from 'xyzdoc-core/highlight';
 import { useShiki } from 'xyzdoc-core/highlight/client';
-import { cn } from '@fumadocs/ui/cn';
+import { cn } from '@xyzdoc/ui/cn';
 import {
   type ComponentProps,
   createContext,

@@ -1,1 +1,1 @@
-export * from '@fumadocs/ui/components/toc/default';
+export * from '@xyzdoc/ui/components/toc/default';

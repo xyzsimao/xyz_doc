@@ -1,6 +1,6 @@
 import type { ComponentProps, ReactNode } from 'react';
 import type { I18nConfig } from 'xyzdoc-core/i18n';
-import type { LinkItemType } from '@fumadocs/ui/link-item';
+import type { LinkItemType } from '@xyzdoc/ui/link-item';
 import Link from 'xyzdoc-core/link';
 
 export interface NavOptions {
@@ -99,4 +99,4 @@ export function renderTitleNav(
   );
 }
 
-export type * from '@fumadocs/ui/link-item';
+export type * from '@xyzdoc/ui/link-item';
