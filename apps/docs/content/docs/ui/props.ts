@@ -7,7 +7,7 @@ import type { Card } from 'xyzdoc-ui/components/card'
 import type { DocsLayoutProps } from 'xyzdoc-ui/layouts/docs'
 import type { ComponentProps, ComponentPropsWithoutRef } from 'react'
 import type { DocsPageProps } from 'xyzdoc-ui/layouts/docs/page'
-// import type { AutoTypeTable } from 'xyzdoc-typescript/ui';
+import type { AutoTypeTable } from 'xyzdoc-typescript/ui'
 import type { RootProviderProps } from 'xyzdoc-ui/provider/base'
 
 export type AccordionsProps = Omit<
@@ -77,7 +77,7 @@ export type FooterProps = Omit<
   keyof ComponentProps<'div'>
 >
 
-// export type AutoTypeTableProps = ComponentPropsWithoutRef<typeof AutoTypeTable>;
+export type AutoTypeTableProps = ComponentPropsWithoutRef<typeof AutoTypeTable>
 
 export type SearchProps = Required<RootProviderProps>['search']
 

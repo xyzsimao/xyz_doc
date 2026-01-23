@@ -29,6 +29,7 @@
     "fumadocs-twoslash": "^3.1.12",
     "xyzdoc-twoslash": "workspace:*",
     "xyzdoc-ui": "workspace:*",
+    "xyzdoc-typescript": "workspace:*",
     "hast-util-to-jsx-runtime": "^2.3.6",
     "lucide-react": "^0.562.0",
     "mermaid": "^11.12.2",

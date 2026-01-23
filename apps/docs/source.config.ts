@@ -56,6 +56,12 @@ export const docs = defineDocs({
       //   'fumadocs-docgen/remark-ts2js'
       // )
       const { default: rehypeKatex } = await import('rehype-katex')
+
+      const {
+        remarkAutoTypeTable,
+        createGenerator,
+        createFileSystemGeneratorCache,
+      } = await import('xyzdoc-typescript')
       // const {
       //   remarkAutoTypeTable,
       //   createGenerator,
@@ -107,12 +113,12 @@ export const docs = defineDocs({
           remarkSteps,
           remarkMath,
           [remarkFeedbackBlock, feedbackOptions],
-          // [
-          //   remarkAutoTypeTable,
-          //   {
-          //     generator,
-          //   },
-          // ],
+          [
+            remarkAutoTypeTable,
+            // {
+            //   generator,
+            // },
+          ],
           // remarkTypeScriptToJavaScript,
         ],
         rehypePlugins: (v) => [rehypeKatex, ...v],
