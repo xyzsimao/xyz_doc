@@ -2,7 +2,7 @@ import { source } from '@/lib/source'
 import { DocsLayout } from 'xyzdoc-ui/layouts/docs'
 import { baseOptions, linkItems, logo } from '@/lib/layout.shared'
 import { getSection } from '@/lib/source/navigation'
- 
+import 'katex/dist/katex.min.css'
 
 export default function Layout({ children }: LayoutProps<'/docs'>) {
   return (

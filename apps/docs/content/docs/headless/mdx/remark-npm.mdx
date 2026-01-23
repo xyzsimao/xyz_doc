@@ -9,7 +9,7 @@ Add the remark plugin.
 
 ```ts tab="MDX Compiler"
 import { compile } from '@mdx-js/mdx';
-import { remarkNpm } from 'fumadocs-core/mdx-plugins';
+import { remarkNpm } from 'xyzdoc-core/mdx-plugins';
 
 await compile('...', {
   remarkPlugins: [remarkNpm],
@@ -17,7 +17,7 @@ await compile('...', {
 ```
 
 ```ts title="source.config.ts" tab="Fumadocs MDX"
-import { defineConfig } from 'fumadocs-mdx/config';
+import { defineConfig } from 'xyzdoc-mdx/config';
 
 export default defineConfig({
   mdxOptions: {
@@ -46,7 +46,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
 ```
 
 ```tsx tab="Fumadocs UI" title="mdx-components.tsx"
-import defaultComponents from 'fumadocs-ui/mdx';
+import defaultComponents from 'xyzdoc-ui/mdx';
 import type { MDXComponents } from 'mdx/types';
 
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
@@ -108,7 +108,7 @@ npm i my-package
 When using with Fumadocs UI, you can enable persist the selected value with the `persist` option.
 
 ```ts title="source.config.ts" tab="Fumadocs MDX"
-import { defineConfig } from 'fumadocs-mdx/config';
+import { defineConfig } from 'xyzdoc-mdx/config';
 
 export default defineConfig({
   mdxOptions: {
@@ -123,7 +123,7 @@ export default defineConfig({
 
 ```ts tab="MDX Compiler"
 import { compile } from '@mdx-js/mdx';
-import { remarkNpm, type RemarkNpmOptions } from 'fumadocs-core/mdx-plugins';
+import { remarkNpm, type RemarkNpmOptions } from 'xyzdoc-core/mdx-plugins';
 
 const remarkNpmOptions: RemarkNpmOptions = {
   persist: {

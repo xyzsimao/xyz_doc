@@ -1,0 +1,305 @@
+---
+title: markdown 自带组件
+description: markdown 自带组件 demo
+icon: Pen
+---
+
+
+```bash tab="npm"
+npm create xyzdoc-app
+```
+
+```bash tab="pnpm"
+pnpm create xyzdoc-app
+```
+
+```bash tab="yarn"
+yarn create xyzdoc-app
+```
+
+```bash tab="bun"
+bun create xyzdoc-app
+```
+
+<Callout title='From Existing Codebase?'>
+
+    You can follow the [Manual Installation](/docs/manual-installation) guide to get started.
+
+</Callout>
+
+<Accordions>
+  <Accordion id='upgrade-fumadocs' title="Getting error with missing APIs or bugs?">
+    Make sure to upgrade Fumadocs when you've encountered any problems or trying out new features:
+
+    ```bash title="pnpm"
+    pnpm update -i -r --latest
+    ```
+
+  </Accordion>
+
+  <Accordion id='change-base-url' title="How to change the base route of docs?">
+
+    Routing is handled by your React framework, you need to change the routing structure first.
+
+    For example, in Next.js, rename the route (`/docs/*` -> `/info/*`):
+
+    <Files>
+      <Folder name="app/docs" defaultOpen className="opacity-50" disabled>
+        <File name="layout.tsx" />
+      </Folder>
+      <Folder name="app/info" defaultOpen>
+        <File name="layout.tsx" />
+      </Folder>
+    </Files>
+
+    Or rename from `/docs/*` to `/*` using a route group:
+
+    <Files>
+      <Folder name="app/(docs)" defaultOpen>
+        <File name="layout.tsx" />
+      </Folder>
+    </Files>
+
+    Finally, update the base URL of pages in `source.ts`:
+
+```ts title="lib/source.ts"
+import { loader } from 'xyzdoc-core/source';
+
+export const source = loader({
+  baseUrl: '/info', // to the new value [!code highlight]
+});
+```
+
+  </Accordion>
+
+    <Accordion id='multi-docs' title="How to implement multi-docs?">
+        We recommend to use [Sidebar Tabs](/docs/ui/layouts/docs#sidebar-tabs).
+    </Accordion>
+
+</Accordions>
+
+| Feature                    | Fumadocs | Nextra |
+| -------------------------- | -------- | ------ |
+| OpenAPI Integration        | Yes      | No     |
+| TypeScript Docs Generation | Yes      | No     |
+| TypeScript Twoslash        | Yes      | Yes    |
+
+
+<include>.test.mdx#setup-section</include>
+
+```ts title="lib/source.ts"
+import { docs } from 'xyzdoc-mdx:collections/server';
+import { loader, update } from 'xyzdoc-core/source';
+
+const filteredSource = update(docs.toFumadocsSource())
+  .files((files) =>
+    files.filter((file) => {
+      // keep meta files (e.g. `meta.json`)
+      if (file.type === 'meta') return true;
+
+      // access file data (type-safe)
+      return file.data.permission === 'public';
+    }),
+  )
+  .build();
+
+export const source = loader(filteredSource, {
+  baseUrl: '/docs',
+});
+```
+
+```ts tab="lib/source.ts"
+import { docs } from 'xyzdoc-mdx:collections/server';
+import { loader, update } from 'xyzdoc-core/source';
+
+// uncached, it's better to cache it in-memory for real use case.
+export function createSource(permission: 'public' | 'admin') {
+  const filteredSource = update(docs.toFumadocsSource())
+    .files((files) =>
+      files.filter((file) => {
+        if (file.type === 'meta') return true;
+
+        return file.data.permission === permission;
+      }),
+    )
+    .build();
+
+  return loader(filteredSource, {
+    baseUrl: '/docs',
+  });
+}
+```
+
+```ts tab="References"
+// [!code --]
+import { source } from '@/lib/source';
+// [!code ++:4]
+import { createSource } from '@/lib/source';
+
+const user = await getUser();
+const source = createSource(user.permission);
+
+const page = source.getPage(params.slugs);
+```
+
+<Tabs items={['dot', 'dir']}>
+
+  <Tab>
+
+    Add Markdown/meta files for different languages by attending `.{locale}` to your file name, like:
+
+    <Files>
+      <Folder name="content/docs" defaultOpen>
+        <File name="meta.json" />
+        <File name="meta.cn.json" />
+        <File name="get-started.mdx" />
+        <File name="get-started.cn.mdx" />
+      </Folder>
+    </Files>
+
+    For the default locale, the locale code is optional.
+
+  </Tab>
+
+  <Tab>
+
+    All content files are grouped by language folders:
+
+    <Files>
+      <Folder name="content/docs" defaultOpen>
+        <Folder name='en' defaultOpen>
+          <File name="meta.json" />
+          <File name="get-started.mdx" />
+        </Folder>
+
+        <Folder name='cn' defaultOpen>
+          <File name="meta.json" />
+          <File name="get-started.mdx" />
+        </Folder>
+      </Folder>
+    </Files>
+
+  </Tab>
+
+</Tabs>
+
+
+<Files>
+  <Folder name="framework" defaultOpen>
+    <File name="index.mdx" />
+    <File name="current-page.mdx" className="!text-fd-primary !bg-fd-primary/10" />
+    <File name="other-pages.mdx" />
+  </Folder>
+  <Folder name="headless (hidden)" className="opacity-50" disabled defaultOpen>
+    <File name="my-page.mdx" />
+  </Folder>
+</Files>
+
+Type some TeX expression in your documents, like the Pythagoras theorem:
+
+````mdx
+Inline: $$c = \pm\sqrt{a^2 + b^2}$$
+
+
+````
+
+Inline: $$c = \pm\sqrt{a^2 + b^2}$$
+
+
+
+Taylor Expansion (expressing holomorphic function $$f(x)$$ in power series):
+
+```math
+\displaystyle {\begin{aligned}T_{f}(z)&=\sum _{k=0}^{\infty }{\frac {(z-c)^{k}}{2\pi i}}\int _{\gamma }{\frac {f(w)}{(w-c)^{k+1}}}\,dw\\&={\frac {1}{2\pi i}}\int _{\gamma }{\frac {f(w)}{w-c}}\sum _{k=0}^{\infty }\left({\frac {z-c}{w-c}}\right)^{k}\,dw\\&={\frac {1}{2\pi i}}\int _{\gamma }{\frac {f(w)}{w-c}}\left({\frac {1}{1-{\frac {z-c}{w-c}}}}\right)\,dw\\&={\frac {1}{2\pi i}}\int _{\gamma }{\frac {f(w)}{w-z}}\,dw=f(z),\end{aligned}}
+```
+
+```mdx
+<Mermaid
+  chart="
+graph TD;
+subgraph AA [Consumers]
+A[Mobile app];
+B[Web app];
+C[Node.js client];
+end
+subgraph BB [Services]
+E[REST API];
+F[GraphQL API];
+G[SOAP API];
+end
+Z[GraphQL API];
+A --> Z;
+B --> Z;
+C --> Z;
+Z --> E;
+Z --> F;
+Z --> G;"
+/>
+```
+
+<Tabs items={['Diagram', 'User Journey']}>
+
+    <Tab>
+    <Mermaid
+        chart="
+
+graph TD;
+subgraph AA [Consumers]
+A[Mobile app];
+B[Web app];
+C[Node.js client];
+end
+subgraph BB [Services]
+E[REST API];
+F[GraphQL API];
+G[SOAP API];
+end
+Z[GraphQL API];
+A --> Z;
+B --> Z;
+C --> Z;
+Z --> E;
+Z --> F;
+Z --> G;"
+/>
+
+</Tab>
+
+    <Tab>
+        <Mermaid
+            chart="
+
+journey
+title My working day
+section Go to work
+Make tea: 5: Me
+Go upstairs: 3: Me
+Do work: 1: Me, Cat
+section Go home
+Go downstairs: 5: Me
+Sit down: 5: Me
+"
+/>
+
+    </Tab>
+
+</Tabs>
+
+
+```ts twoslash title="Test" lineNumbers
+type Player = {
+  /**
+   * The player name
+   * @default 'user'
+   */
+  name: string;
+};
+
+// ---cut---
+// @noErrors
+console.g;
+//       ^|
+
+const player: Player = { name: 'Hello World' };
+//    ^?
+```

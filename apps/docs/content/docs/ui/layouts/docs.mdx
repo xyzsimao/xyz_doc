@@ -14,7 +14,7 @@ The layout of documentation pages, it includes a sidebar and **mobile-only** nav
 Pass your page tree to the component.
 
 ```tsx title="layout.tsx"
-import { DocsLayout } from 'fumadocs-ui/layouts/docs';
+import { DocsLayout } from 'xyzdoc-ui/layouts/docs';
 import { baseOptions } from '@/lib/layout.shared';
 import type { ReactNode } from 'react';
 
@@ -39,7 +39,7 @@ See detailed docs for [`links`](/docs/ui/layouts/links) and [`nav`](/docs/ui/lay
 ## Sidebar
 
 ```tsx title="layout.tsx"
-import { DocsLayout } from 'fumadocs-ui/layouts/docs';
+import { DocsLayout } from 'xyzdoc-ui/layouts/docs';
 
 <DocsLayout
   sidebar={{
@@ -63,7 +63,7 @@ Sidebar items are rendered from the page tree you passed to `<DocsLayout />`.
 For page tree from [`loader()`](/docs/headless/source-api), it generates the tree from your file structure, see [available patterns](/docs/page-conventions).
 
 ```tsx title="layout.tsx"
-import { DocsLayout } from 'fumadocs-ui/layouts/docs';
+import { DocsLayout } from 'xyzdoc-ui/layouts/docs';
 import { source } from '@/lib/source';
 import type { ReactNode } from 'react';
 
@@ -82,7 +82,7 @@ export default function Layout({ children }: { children: ReactNode }) {
 You may hardcode it too:
 
 ```tsx title="layout.tsx"
-import { DocsLayout } from 'fumadocs-ui/layouts/docs';
+import { DocsLayout } from 'xyzdoc-ui/layouts/docs';
 import type { ReactNode } from 'react';
 
 export default function Layout({ children }: { children: ReactNode }) {
@@ -125,7 +125,7 @@ You can add items by marking folders as [Root Folders](/docs/page-conventions#ro
 Or specify them explicitly:
 
 ```tsx title="/app/docs/layout.tsx"
-import { DocsLayout } from 'fumadocs-ui/layouts/docs';
+import { DocsLayout } from 'xyzdoc-ui/layouts/docs';
 
 <DocsLayout
   sidebar={{
@@ -147,7 +147,7 @@ import { DocsLayout } from 'fumadocs-ui/layouts/docs';
 Set it to `false` to disable:
 
 ```tsx
-import { DocsLayout } from 'fumadocs-ui/layouts/docs';
+import { DocsLayout } from 'xyzdoc-ui/layouts/docs';
 
 <DocsLayout sidebar={{ tabs: false }} />;
 ```
@@ -157,7 +157,7 @@ import { DocsLayout } from 'fumadocs-ui/layouts/docs';
 You can specify a `banner` to the [Docs Layout](/docs/ui/layouts/docs) component.
 
 ```tsx
-import { DocsLayout, type DocsLayoutProps } from 'fumadocs-ui/layouts/docs';
+import { DocsLayout, type DocsLayoutProps } from 'xyzdoc-ui/layouts/docs';
 import type { ReactNode } from 'react';
 import { baseOptions } from '@/lib/layout.shared';
 import { source } from '@/lib/source';
@@ -185,7 +185,7 @@ export default function Layout({ children }: { children: ReactNode }) {
 Change the icon/styles of tabs.
 
 ```tsx
-import { DocsLayout } from 'fumadocs-ui/layouts/docs';
+import { DocsLayout } from 'xyzdoc-ui/layouts/docs';
 
 <DocsLayout
   sidebar={{
@@ -204,7 +204,7 @@ import { DocsLayout } from 'fumadocs-ui/layouts/docs';
 You can replace certain components for rendering page tree.
 
 ```tsx tab="layout.tsx"
-import { DocsLayout } from 'fumadocs-ui/layouts/docs';
+import { DocsLayout } from 'xyzdoc-ui/layouts/docs';
 import { SidebarSeparator } from './layout.client';
 
 <DocsLayout
@@ -219,7 +219,7 @@ import { SidebarSeparator } from './layout.client';
 
 ```tsx tab="layout.client.tsx"
 'use client';
-import * as Base from 'fumadocs-ui/components/sidebar/base';
+import * as Base from 'xyzdoc-ui/components/sidebar/base';
 
 export function SidebarSeparator({ className, style, children, ...props }: ComponentProps<'p'>) {
   const depth = Base.useFolderDepth();
@@ -255,7 +255,7 @@ It can also hit the limits of some other hosting platforms.
 You can disable prefetching to reduce the amount of prefetch requests, or enable explicitly:
 
 ```tsx
-import { DocsLayout } from 'fumadocs-ui/layouts/docs';
+import { DocsLayout } from 'xyzdoc-ui/layouts/docs';
 
 <DocsLayout sidebar={{ prefetch: false }} />;
 ```

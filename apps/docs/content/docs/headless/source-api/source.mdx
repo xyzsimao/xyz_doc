@@ -12,10 +12,10 @@ description: Setup sources for Loader API
 Use `multiple` to combine multiple sources into one.
 
 ```ts
-import { loader, multiple } from 'fumadocs-core/source';
-import { openapiPlugin, openapiSource } from 'fumadocs-openapi/server';
-import { blog, docs } from 'fumadocs-mdx:collections/server';
-import { lucideIconsPlugin } from 'fumadocs-core/source/lucide-icons';
+import { loader, multiple } from 'xyzdoc-core/source';
+import { openapiPlugin, openapiSource } from 'xyzdoc-openapi/server';
+import { blog, docs } from 'xyzdoc-mdx:collections/server';
+import { lucideIconsPlugin } from 'xyzdoc-core/source/lucide-icons';
 
 export const source = loader(
   multiple({
@@ -47,7 +47,7 @@ To plug your own content source, create a `Source` object.
 Since Loader API doesn't rely on file system, file paths only allow virtual paths like `file.mdx` and `content/file.mdx`, `./file.mdx` and `D://content/file.mdx` are not allowed.
 
 ```ts twoslash
-import { Source } from 'fumadocs-core/source';
+import { Source } from 'xyzdoc-core/source';
 
 export function createMySource(): Source<{
   metaData: { title: string; pages: string[] }; // Your custom type

@@ -4,6 +4,7 @@ import {
   DocsDescription,
   DocsPage,
   DocsTitle,
+  PageLastUpdate,
 } from 'xyzdoc-ui/layouts/docs/page'
 import { notFound } from 'next/navigation'
 import { getMDXComponents } from '@/mdx-components'
@@ -22,7 +23,7 @@ import { TypeTable } from 'xyzdoc-ui/components/type-table'
 import { Wrapper } from '@/components/preview/wrapper'
 import { Mermaid } from '@/components/mdx/mermaid'
 import { LLMCopyButton, ViewOptions } from '@/components/ai/page-actions'
-// import { Feedback, FeedbackBlock } from '@/components/feedback/client'
+import { Feedback, FeedbackBlock } from '@/components/feedback/client'
 import {
   onBlockFeedbackAction,
   onPageFeedbackAction,
@@ -81,7 +82,13 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
       <p className="text-lg text-fd-muted-foreground mb-2">
         {page.data.description}
       </p>
-
+      {/* <div className="flex flex-row gap-2 items-center border-b pt-2 pb-6">
+        <LLMCopyButton markdownUrl={`${page.url}.mdx`} />
+        <ViewOptions
+          markdownUrl={`${page.url}.mdx`}
+          githubUrl={`https://github.com/${owner}/${repo}/blob/dev/apps/docs/content/docs/${page.path}`}
+        />
+      </div> */}
       <div className="prose flex-1 text-fd-foreground/90">
         {page.data.preview && <PreviewRenderer preview={page.data.preview} />}
         <MDX
@@ -115,7 +122,11 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
                 </HoverCard>
               )
             },
-
+            FeedbackBlock: ({ children, ...props }) => (
+              <FeedbackBlock {...props} onSendAction={onBlockFeedbackAction}>
+                {children}
+              </FeedbackBlock>
+            ),
             Banner,
             Mermaid,
             TypeTable,
@@ -129,6 +140,11 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
           })}
         />
         {page.data.index ? <DocsCategory url={page.url} /> : null}
+
+        <Feedback onSendAction={onPageFeedbackAction} />
+        {page.data.lastModified && (
+          <PageLastUpdate date={page.data.lastModified} />
+        )}
       </div>
     </DocsPage>
   )

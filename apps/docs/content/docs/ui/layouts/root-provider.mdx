@@ -10,7 +10,7 @@ The context provider of all the components, including `next-themes` and [`<Frame
 Import it according to your React.js framework:
 
 ```jsx tab="Next.js"
-import { RootProvider } from 'fumadocs-ui/provider/next';
+import { RootProvider } from 'xyzdoc-ui/provider/next';
 
 export default function Layout({ children }) {
   return (
@@ -24,7 +24,7 @@ export default function Layout({ children }) {
 ```
 
 ```jsx tab="React Router"
-import { RootProvider } from 'fumadocs-ui/provider/react-router';
+import { RootProvider } from 'xyzdoc-ui/provider/react-router';
 
 export function Layout({ children }) {
   return (
@@ -42,7 +42,7 @@ import {
   HeadContent,
   Scripts,
 } from '@tanstack/react-router';
-import { RootProvider } from 'fumadocs-ui/provider/tanstack';
+import { RootProvider } from 'xyzdoc-ui/provider/tanstack';
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
@@ -61,7 +61,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 ```
 
 ```jsx tab="Waku"
-import { RootProvider } from 'fumadocs-ui/provider/waku';
+import { RootProvider } from 'xyzdoc-ui/provider/waku';
 
 export default function Layout({ children }) {
   return (

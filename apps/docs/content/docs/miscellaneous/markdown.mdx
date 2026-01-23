@@ -1,0 +1,132 @@
+---
+title: markdown语法
+description: markdown语法小抄
+icon: Pen
+---
+## Markdown语法
+
+| Markdown 语法   | 渲染后的HTML     | 预览效果                   |
+| ------------------- | ------------ | ------------------------- |
+| ``` # Heading level 1  ```| ``` <h1>Heading level 1</h1> ```| <h1>Heading level 1</h1>  |
+| ```## Heading level 2 ``` | ```<h2>Heading level 2</h2> ```| <h2>Heading level 2</h2>  |
+| ```### Heading level 3  ```| ```<h3>Heading level 3</h3> ```| <h3>Heading level 3</h3>  |
+| ```#### Heading level 4  ```| ```<h4>Heading level 4</h4> ```| <h4>Heading level 4</h4>  |
+| ```##### Heading level 5  ```| ```<h5>Heading level 5</h5> ```| <h5>Heading level 5</h5>  |
+| ```###### Heading level 6  ```| ```<h6>Heading level 6</h6> ```| <h6>Heading level 6</h6>  |
+| 粗体| ```**bold text** or __bold text2__ ```| **bold text** __bold text2__|
+| 斜体| ```*italicized text* ```| *italicized text*|
+
+### 段落
+段落的前后要有空行，所谓的空行是指没有文字内容。若想在段内强制换行的方式是使用**两个以上**空格加上回车（引用中换行省略回车）。
+
+```mdx
+I really like using Markdown.
+
+I think I'll use it to format all of my documents from now on.
+```
+
+I really like using Markdown.
+
+I think I'll use it to format all of my documents from now on.
+
+```mdx
+> Dorothy followed her through many of the beautiful rooms in her castle.
+>
+>> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+```
+渲染效果如下：
+> Dorothy followed her through many of the beautiful rooms in her castle.
+>
+>> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+
+```md
+~~The quick brown fox jumps over the lazy dog.~~
+```
+
+~~The quick brown fox jumps over the lazy dog.~~
+
+```md
+The quick\
+brown fox\
+jumps over\
+the lazy dog.
+```
+
+The quick\
+brown fox\
+jumps over\
+the lazy dog.
+
+
+
+```java
+public static String monthNames[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+```
+
+```md
+| Default | Left align | Center align | Right align |
+| - | :- | :-: | -: |
+| 9999999999 | 9999999999 | 9999999999 | 9999999999 |
+| 999999999 | 999999999 | 999999999 | 999999999 |
+| 99999999 | 99999999 | 99999999 | 99999999 |
+| 9999999 | 9999999 | 9999999 | 9999999 |
+
+```
+| Default | Left align | Center align | Right align |
+| - | :- | :-: | -: |
+| 9999999999 | 9999999999 | 9999999999 | 9999999999 |
+| 999999999 | 999999999 | 999999999 | 999999999 |
+| 99999999 | 99999999 | 99999999 | 99999999 |
+| 9999999 | 9999999 | 9999999 | 9999999 |
+
+```md
+[The-Ultimate-Markdown-Cheat-Sheet](https://github.com/lifeparticle/Markdown-Cheatsheet)
+```
+
+[The-Ultimate-Markdown-Cheat-Sheet](https://github.com/lifeparticle/The-Ultimate-Markdown-Cheat-Sheet)
+
+```md
+Footnote.[^1]
+
+Some other important footnote.[^2]
+
+[^1]: This is footnote number one.
+[^2]: Here is the second footnote.
+```
+
+Footnote.[^1]
+
+Some other important footnote.[^2]
+
+[^1]: This is footnote number one.
+[^2]: Here is the second footnote.
+
+
+```md
+![alt text][image]
+
+![Notebook](/docs/notebook.png)
+```
+
+![Notebook](/docs/notebook.png)
+
+```md
+- [x] Fix Bug 223
+- [ ] Add Feature 33
+- [ ] Add unit tests
+```
+
+- [x] Fix Bug 223
+- [ ] Add Feature 33
+- [ ] Add unit tests
+
+
+1. Create a Markdown table of content - [binarytree](https://binarytree.dev/markdown/toc), [github-markdown-toc](https://github.com/ekalinin/github-markdown-toc)
+2. Create an empty Markdown table - [Tablesgenerator](https://www.tablesgenerator.com/markdown_tables)
+3. Convert Excel to Markdown table - [Tableconvert](https://tableconvert.com/)
+4. Markdown preview for Sublime Text 3 - [Packagecontrol](https://packagecontrol.io/packages/MarkdownPreview)
+5. Markdown preview Visual Studio Code - [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
+6. A collection of awesome markdown goodies - [Awesome Markdown](https://github.com/mundimark/awesome-markdown)
+7. Markdownlint - [markdownlint](https://github.com/DavidAnson/markdownlint), [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2), [markdownlint-cli2-action](https://github.com/DavidAnson/markdownlint-cli2-action), [vscode-markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
+8. A lightweight Python utility for converting various files to Markdown - [Markitdown](https://github.com/microsoft/markitdown)
+9. A SSE MCP server for calling MarkItDown - [MarkItDown-MCP](https://github.com/microsoft/markitdown/tree/main/packages/markitdown-mcp)

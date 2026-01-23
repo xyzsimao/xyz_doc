@@ -1,0 +1,73 @@
+<section id="setup-section">
+<div className="fd-steps [&_h3]:fd-step">
+
+### Installation
+
+```npm
+npm i xyzdoc-mdx xyzdoc-core @types/mdx
+```
+
+Create the configuration file:
+
+```ts title="source.config.ts"
+import { defineDocs, defineConfig } from 'xyzdoc-mdx/config';
+
+export const docs = defineDocs({
+  dir: 'content/docs',
+});
+
+export default defineConfig();
+```
+
+Add the plugin to Next.js config:
+
+```js title="next.config.mjs"
+import { createMDX } from 'xyzdoc-mdx/next';
+
+/** @type {import('next').NextConfig} */
+const config = {
+  reactStrictMode: true,
+};
+
+// [!code ++:4]
+const withMDX = createMDX({
+  // customise the config file path
+  // configPath: "source.config.ts"
+});
+
+// [!code highlight]
+export default withMDX(config);
+```
+
+<Callout title="ESM Only" type='warn'>
+
+Fumadocs MDX is ESM-only, it's recommended to use `next.config.mjs` for accurate ESM resolution.
+
+For TypeScript config file, it requires Native Node.js TypeScript Resolver, you can see [Next.js docs](https://nextjs.org/docs/app/api-reference/config/typescript#using-nodejs-native-typescript-resolver-for-nextconfigts) for details.
+
+</Callout>
+
+
+### Integrate with Fumadocs
+
+You can create a `lib/source.ts` file and obtain Fumadocs source from the `docs` collection output.
+
+```ts title="lib/source.ts"
+import { docs } from 'xyzdoc-mdx:collections/server';
+import { loader } from 'xyzdoc-core/source';
+
+export const source = loader({
+  baseUrl: '/docs',
+  source: docs.toFumadocsSource(),
+});
+```
+
+The `.source` folder will be generated when you run `next dev` or `next build`.
+
+### Done
+
+You can now write content in `content/docs` folder.
+
+</div>
+</section>
+

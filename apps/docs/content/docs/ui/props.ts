@@ -7,7 +7,7 @@ import type { Card } from 'xyzdoc-ui/components/card'
 import type { DocsLayoutProps } from 'xyzdoc-ui/layouts/docs'
 import type { ComponentProps, ComponentPropsWithoutRef } from 'react'
 import type { DocsPageProps } from 'xyzdoc-ui/layouts/docs/page'
-// import type { AutoTypeTable } from 'fumadocs-typescript/ui';
+// import type { AutoTypeTable } from 'xyzdoc-typescript/ui';
 import type { RootProviderProps } from 'xyzdoc-ui/provider/base'
 
 export type AccordionsProps = Omit<

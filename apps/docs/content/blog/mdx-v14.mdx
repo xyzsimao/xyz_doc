@@ -32,7 +32,7 @@ To migrate, add/update the path aliases in `tsconfig.json` for new entry files.
   "compilerOptions": {
     "paths": {
       // [!code ++]
-      "fumadocs-mdx:collections/*": [".source/*"]
+      "xyzdoc-mdx:collections/*": [".source/*"]
     }
   }
 }
@@ -42,10 +42,10 @@ Import your collections from the entry files instead of `@/.source`:
 
 ```tsx
 // access collections on server-side
-import { docs } from 'fumadocs-mdx:collections/server';
+import { docs } from 'xyzdoc-mdx:collections/server';
 
 // non-RSC environment (e.g. browser)
-import browserCollections from 'fumadocs-mdx:collections/browser';
+import browserCollections from 'xyzdoc-mdx:collections/browser';
 
 const clientLoader = browserCollections.docs.createClientLoader({
   component({ frontmatter, default: MDX }) {
@@ -59,7 +59,7 @@ const clientLoader = browserCollections.docs.createClientLoader({
 });
 
 // new collection type: dynamically-compiled collections
-import { docs } from 'fumadocs-mdx:collections/dynamic';
+import { docs } from 'xyzdoc-mdx:collections/dynamic';
 ```
 
 <Callout>
@@ -77,8 +77,8 @@ The adapter for `loader()` API is also changed.
 For `docs` collection, `create.sourceAsync()` (Vite) is now consistent with Next.js:
 
 ```ts
-import { docs } from 'fumadocs-mdx:collections/server';
-import { loader } from 'fumadocs-core/source';
+import { docs } from 'xyzdoc-mdx:collections/server';
+import { loader } from 'xyzdoc-core/source';
 
 export const source = loader({
   baseUrl: '/docs',
@@ -92,9 +92,9 @@ For `doc` collections, `createMDXSource()` (Next.js) is renamed to `toFumadocsSo
 If you use `create.sourceAsync()` (Vite) for `doc` collections, you should also switch to `toFumadocsSource()`.
 
 ```ts
-import { blogPosts } from 'fumadocs-mdx:collections/server';
-import { toFumadocsSource } from 'fumadocs-mdx/runtime/server';
-import { loader } from 'fumadocs-core/source';
+import { blogPosts } from 'xyzdoc-mdx:collections/server';
+import { toFumadocsSource } from 'xyzdoc-mdx/runtime/server';
+import { loader } from 'xyzdoc-core/source';
 
 export const blog = loader({
   baseUrl: '/blog',
@@ -108,7 +108,7 @@ export const blog = loader({
 On Next.js, **Async Mode** now aligns with the behaviour on Vite to generate async imports. This enables server-side chunking to improve memory usage.
 
 ```ts title="source.config.ts"
-import { defineDocs } from 'fumadocs-mdx/config';
+import { defineDocs } from 'xyzdoc-mdx/config';
 
 export const docs = defineDocs({
   dir: 'content/docs',
@@ -122,7 +122,7 @@ export const docs = defineDocs({
 Instead, we introduced a `dynamic` option to enable dynamic compilation. This is available for both Vite and Next.js.
 
 ```ts title="source.config.ts"
-import { defineDocs } from 'fumadocs-mdx/config';
+import { defineDocs } from 'xyzdoc-mdx/config';
 
 export const docs = defineDocs({
   dir: 'content/docs',
@@ -140,17 +140,17 @@ By enabling Async or Dynamic modes, the relevant collections are considered lazy
 It now accepts the framework plugin options, you can customise more properties:
 
 ```ts tab="Before"
-import { postInstall } from 'fumadocs-mdx/next';
+import { postInstall } from 'xyzdoc-mdx/next';
 // or
-import { postInstall } from 'fumadocs-mdx/vite';
+import { postInstall } from 'xyzdoc-mdx/vite';
 
 postInstall('source.config.ts');
 ```
 
 ```ts tab="After"
-import { postInstall } from 'fumadocs-mdx/next';
+import { postInstall } from 'xyzdoc-mdx/next';
 // or
-import { postInstall } from 'fumadocs-mdx/vite';
+import { postInstall } from 'xyzdoc-mdx/vite';
 
 postInstall({ configPath: 'source.config.ts' });
 ```
@@ -160,7 +160,7 @@ postInstall({ configPath: 'source.config.ts' });
 To support a broader range of presets and accommodate dynamic modes, `getDefaultMDXOptions()` has been renamed to `applyMdxPreset()`.
 
 ```ts title="source.config.ts" tab="Before"
-import { defineCollections, getDefaultMDXOptions } from 'fumadocs-mdx/config';
+import { defineCollections, getDefaultMDXOptions } from 'xyzdoc-mdx/config';
 import { myPlugin } from './remark-plugin';
 
 export const blog = defineCollections({
@@ -174,7 +174,7 @@ export const blog = defineCollections({
 ```
 
 ```ts title="source.config.ts" tab="After"
-import { defineCollections, applyMdxPreset } from 'fumadocs-mdx/config';
+import { defineCollections, applyMdxPreset } from 'xyzdoc-mdx/config';
 import { myPlugin } from './remark-plugin';
 
 export const blog = defineCollections({
@@ -192,8 +192,8 @@ export const blog = defineCollections({
 The `lastModifiedTime` option has been replaced by a dedicated `lastModified` plugin. This shift promotes a plugin-based architecture for better extensibility.
 
 ```ts title="source.config.ts"
-import { defineConfig } from 'fumadocs-mdx/config';
-import lastModified from 'fumadocs-mdx/plugins/last-modified';
+import { defineConfig } from 'xyzdoc-mdx/config';
+import lastModified from 'xyzdoc-mdx/plugins/last-modified';
 
 export default defineConfig({
   // [!code ++]
@@ -206,7 +206,7 @@ export default defineConfig({
 Support for specifying multiple directories in a single collection has been discontinued. Instead, utilize the `files` property to filter and include specific files.
 
 ```ts title="source.config.ts"
-import { defineDocs } from 'fumadocs-mdx/config';
+import { defineDocs } from 'xyzdoc-mdx/config';
 
 export const docs = defineDocs({
   dir: 'content/guides',
@@ -221,7 +221,7 @@ export const docs = defineDocs({
 The automatic generation of `extractedReferences` is no longer enabled by default. To retain this functionality, explicitly activate it via the `postprocess` option.
 
 ```ts title="source.config.ts"
-import { defineDocs } from 'fumadocs-mdx/config';
+import { defineDocs } from 'xyzdoc-mdx/config';
 
 export const docs = defineDocs({
   dir: 'content/docs',
@@ -240,7 +240,7 @@ The `generateIndexFile` option of our Vite plugin has been renamed to `index`.
 
 ```ts title="vite.config.ts"
 import { defineConfig } from 'vite';
-import mdx from 'fumadocs-mdx/vite';
+import mdx from 'xyzdoc-mdx/vite';
 import * as MdxConfig from './source.config';
 
 export default defineConfig({

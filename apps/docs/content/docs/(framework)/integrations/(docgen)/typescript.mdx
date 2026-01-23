@@ -6,7 +6,7 @@ description: Generate docs from Typescript definitions
 ## Usage
 
 ```package-install
-fumadocs-typescript
+xyzdoc-typescript
 ```
 
 ### UI Integration
@@ -22,12 +22,12 @@ import {
   remarkAutoTypeTable,
   createGenerator,
   createFileSystemGeneratorCache,
-} from 'fumadocs-typescript';
-import { defineConfig } from 'fumadocs-mdx/config';
+} from 'xyzdoc-typescript';
+import { defineConfig } from 'xyzdoc-mdx/config';
 
 const generator = createGenerator({
   // recommended: choose a directory for cache
-  cache: createFileSystemGeneratorCache('.next/fumadocs-typescript'),
+  cache: createFileSystemGeneratorCache('.next/xyzdoc-typescript'),
 });
 
 export default defineConfig({
@@ -42,12 +42,12 @@ import {
   remarkAutoTypeTable,
   createGenerator,
   createFileSystemGeneratorCache,
-} from 'fumadocs-typescript';
+} from 'xyzdoc-typescript';
 import { compile } from '@mdx-js/mdx';
 
 const generator = createGenerator({
   // recommended: choose a directory for cache
-  cache: createFileSystemGeneratorCache('.next/fumadocs-typescript'),
+  cache: createFileSystemGeneratorCache('.next/xyzdoc-typescript'),
 });
 
 await compile('...', {

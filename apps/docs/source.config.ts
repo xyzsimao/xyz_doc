@@ -9,6 +9,8 @@ import {
 } from 'xyzdoc-mdx/config'
 import type { ShikiTransformer } from 'shiki'
 import type { ElementContent } from 'hast'
+import lastModified from 'xyzdoc-mdx/plugins/last-modified'
+import type { RemarkFeedbackBlockOptions } from 'xyzdoc-core/mdx-plugins'
 
 export const docs = defineDocs({
   dir: 'content/docs',
@@ -27,27 +29,33 @@ export const docs = defineDocs({
       method: z.string().optional(),
     }),
 
-    // postprocess: {
-    //   includeProcessedMarkdown: true,
-    //   extractLinkReferences: true,
-    // },
+    postprocess: {
+      includeProcessedMarkdown: true,
+      extractLinkReferences: true,
+    },
     // async: true,
     async mdxOptions(environment) {
-      const { rehypeCodeDefaultOptions } =
-        await import('xyzdoc-core/mdx-plugins/rehype-code')
-      const { remarkStructureDefaultOptions } =
-        await import('xyzdoc-core/mdx-plugins/remark-structure')
-      // const { remarkSteps } =
-      //   await import('fumadocs-core/mdx-plugins/remark-steps')
-      // const { remarkFeedbackBlock } =
-      //   await import('fumadocs-core/mdx-plugins/remark-feedback-block')
-      // const { transformerTwoslash } = await import('fumadocs-twoslash')
-      // const { createFileSystemTypesCache } =
-      //   await import('fumadocs-twoslash/cache-fs')
-      // const { default: remarkMath } = await import('remark-math')
-      // const { remarkTypeScriptToJavaScript } =
-      //   await import('fumadocs-docgen/remark-ts2js')
-      // const { default: rehypeKatex } = await import('rehype-katex')
+      const { rehypeCodeDefaultOptions } = await import(
+        'xyzdoc-core/mdx-plugins/rehype-code'
+      )
+      const { remarkStructureDefaultOptions } = await import(
+        'xyzdoc-core/mdx-plugins/remark-structure'
+      )
+      const { remarkSteps } = await import(
+        'xyzdoc-core/mdx-plugins/remark-steps'
+      )
+      const { remarkFeedbackBlock } = await import(
+        'xyzdoc-core/mdx-plugins/remark-feedback-block'
+      )
+      const { transformerTwoslash } = await import('xyzdoc-twoslash')
+      const { createFileSystemTypesCache } = await import(
+        'fumadocs-twoslash/cache-fs'
+      )
+      const { default: remarkMath } = await import('remark-math')
+      // const { remarkTypeScriptToJavaScript } = await import(
+      //   'fumadocs-docgen/remark-ts2js'
+      // )
+      const { default: rehypeKatex } = await import('rehype-katex')
       // const {
       //   remarkAutoTypeTable,
       //   createGenerator,
@@ -57,17 +65,18 @@ export const docs = defineDocs({
       // const generator = createGenerator({
       //   cache: createFileSystemGeneratorCache('.next/fumadocs-typescript'),
       // })
-      // const feedbackOptions: RemarkFeedbackBlockOptions = {
-      //   resolve(node) {
-      //     // defensive approach
-      //     if (node.type === 'mdxJsxFlowElement') return 'skip'
-      //     return (
-      //       node.type === 'paragraph' ||
-      //       node.type === 'image' ||
-      //       node.type === 'list'
-      //     )
-      //   },
-      // }
+
+      const feedbackOptions: RemarkFeedbackBlockOptions = {
+        resolve(node) {
+          // defensive approach
+          if (node.type === 'mdxJsxFlowElement') return 'skip'
+          return (
+            node.type === 'paragraph' ||
+            node.type === 'image' ||
+            node.type === 'list'
+          )
+        },
+      }
       return applyMdxPreset({
         remarkStructureOptions: {
           types: [...remarkStructureDefaultOptions.types, 'code'],
@@ -81,33 +90,32 @@ export const docs = defineDocs({
           },
           transformers: [
             ...(rehypeCodeDefaultOptions.transformers ?? []),
-            // transformerTwoslash({
-            //   typesCache: createFileSystemTypesCache(),
-            // }),
-            // transformerEscape(),
+            transformerTwoslash({
+              typesCache: createFileSystemTypesCache(),
+            }),
           ],
         },
-        // remarkCodeTabOptions: {
-        //   parseMdx: true,
-        // },
-        // remarkNpmOptions: {
-        //   persist: {
-        //     id: 'package-manager',
-        //   },
-        // },
-        // remarkPlugins: [
-        //   remarkSteps,
-        //   // remarkMath,
-        //   // [remarkFeedbackBlock, feedbackOptions],
-        //   // [
-        //   //   remarkAutoTypeTable,
-        //   //   {
-        //   //     generator,
-        //   //   },
-        //   // ],
-        //   // remarkTypeScriptToJavaScript,
-        // ],
-        // rehypePlugins: (v) => [rehypeKatex, ...v],
+        remarkCodeTabOptions: {
+          parseMdx: true,
+        },
+        remarkNpmOptions: {
+          persist: {
+            id: 'package-manager',
+          },
+        },
+        remarkPlugins: [
+          remarkSteps,
+          remarkMath,
+          [remarkFeedbackBlock, feedbackOptions],
+          // [
+          //   remarkAutoTypeTable,
+          //   {
+          //     generator,
+          //   },
+          // ],
+          // remarkTypeScriptToJavaScript,
+        ],
+        rehypePlugins: (v) => [rehypeKatex, ...v],
       })(environment)
     },
   },
@@ -172,4 +180,6 @@ function transformerEscape(): ShikiTransformer {
   }
 }
 
-export default defineConfig()
+export default defineConfig({
+  plugins: [lastModified()],
+})

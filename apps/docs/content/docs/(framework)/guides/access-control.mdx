@@ -14,8 +14,8 @@ If you are using [`loader()`](/docs/headless/source-api) API, you can create the
 For example, this setup with Fumadocs MDX allows only MDX files with frontmatter `permission: public` to be shown.
 
 ```ts title="lib/source.ts"
-import { docs } from 'fumadocs-mdx:collections/server';
-import { loader, update } from 'fumadocs-core/source';
+import { docs } from 'xyzdoc-mdx:collections/server';
+import { loader, update } from 'xyzdoc-core/source';
 
 const filteredSource = update(docs.toFumadocsSource())
   .files((files) =>
@@ -37,8 +37,8 @@ export const source = loader(filteredSource, {
 Or with more complicated setup, you may turn `source` into a factory function.
 
 ```ts tab="lib/source.ts"
-import { docs } from 'fumadocs-mdx:collections/server';
-import { loader, update } from 'fumadocs-core/source';
+import { docs } from 'xyzdoc-mdx:collections/server';
+import { loader, update } from 'xyzdoc-core/source';
 
 // uncached, it's better to cache it in-memory for real use case.
 export function createSource(permission: 'public' | 'admin') {

@@ -45,20 +45,20 @@ It generates a table for your docs based on TypeScript definitions.
 ## Usage
 
 ```npm
-npm i fumadocs-typescript
+npm i xyzdoc-typescript
 ```
 
 Initialize the TypeScript compiler and add it as a MDX component.
 
 ```tsx title="mdx-components.tsx"
-import defaultComponents from 'fumadocs-ui/mdx';
+import defaultComponents from 'xyzdoc-ui/mdx';
 import type { MDXComponents } from 'mdx/types';
-import { createGenerator, createFileSystemGeneratorCache } from 'fumadocs-typescript';
-import { AutoTypeTable } from 'fumadocs-typescript/ui';
+import { createGenerator, createFileSystemGeneratorCache } from 'xyzdoc-typescript';
+import { AutoTypeTable } from 'xyzdoc-typescript/ui';
 
 const generator = createGenerator({
   // set a cache, necessary for serverless platform like Vercel
-  cache: createFileSystemGeneratorCache('.next/fumadocs-typescript'),
+  cache: createFileSystemGeneratorCache('.next/xyzdoc-typescript'),
 });
 
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
@@ -140,7 +140,7 @@ Your `tsconfig.json` file in the current working directory will be loaded.
 You can change the compiler settings from [`createGenerator()`](/docs/integrations/typescript).
 
 ```ts
-import { createGenerator, createFileSystemGeneratorCache } from 'fumadocs-typescript';
+import { createGenerator, createFileSystemGeneratorCache } from 'xyzdoc-typescript';
 
 const generator = createGenerator({
   tsconfigPath: './tsconfig.json',

@@ -14,8 +14,8 @@ import { UrlBar } from './tabs.client';
 Add MDX components.
 
 ```tsx title="mdx-components.tsx"
-import defaultMdxComponents from 'fumadocs-ui/mdx';
-import * as TabsComponents from 'fumadocs-ui/components/tabs';
+import defaultMdxComponents from 'xyzdoc-ui/mdx';
+import * as TabsComponents from 'xyzdoc-ui/components/tabs';
 import type { MDXComponents } from 'mdx/types';
 
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
@@ -46,7 +46,7 @@ And use it in your MDX content:
 Without a `value`, it detects from the children index. Note that it might cause errors on re-renders, it's not encouraged if the tabs might change.
 
 ```mdx
-import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+import { Tab, Tabs } from 'xyzdoc-ui/components/tabs';
 
 <Tabs items={['Javascript', 'Rust']}>
   <Tab>Javascript is weird</Tab>
