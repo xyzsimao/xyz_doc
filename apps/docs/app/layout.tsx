@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { GeistMono } from 'geist/font/mono'
 import './global.css'
 import { RootProvider } from 'xyzdoc-ui/provider/next'
 import { Body } from '@/app/layout.client'
@@ -9,14 +9,7 @@ import { TreeContextProvider } from 'xyzdoc-ui/contexts/tree'
 import { Provider } from './provider'
 import { source } from '@/lib/source'
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-})
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-})
+ 
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -29,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={GeistMono.variable} suppressHydrationWarning>
       <Body>
         <RootProvider>
           <TreeContextProvider tree={source.getPageTree()}>

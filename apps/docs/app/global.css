@@ -5,7 +5,11 @@
 @import 'fumadocs-openapi/css/preset.css';
 @plugin 'tailwindcss-animate';
 
+@theme {
+  --font-mono: var(--font-geist-mono);
+}
 
+ 
 @theme {
   --spacing-page: 1436px;
   --color-brand: hsl(26, 73%, 51%);
