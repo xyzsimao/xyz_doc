@@ -5,7 +5,7 @@ import type { MDXComponents } from 'mdx/types'
 import { Accordion, Accordions } from 'xyzdoc-ui/components/accordion'
 import * as icons from 'lucide-react'
 import * as Twoslash from 'xyzdoc-twoslash/ui'
-
+ 
 
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {
@@ -17,5 +17,6 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     Accordion,
     Accordions,
     ...components,
+
   }
 }

@@ -1,0 +1,51 @@
+---
+title: color
+description: color
+icon: Pen
+---
+import { cn } from '@/lib/cn';
+import { semanticColors, semanticLevels } from './color.ts'
+
+## 颜色
+
+颜色体系基于 [TailwindCSS 调色板](https://tailwindcss.com/docs/customizing-colors) 实现，主要包含语义化调色板、界面颜色和特殊颜色。下面分别进行介绍。
+
+### 语义化调色板
+
+语义化调色板，每种类型都来自 TailwindCSS 内置的调色板，你可以根据产品中的需要来更换现有调色板。
+
+<Example>
+  {semanticColors.map((color) => (
+    <div key={color.name}>
+      <div className="row gap-4 mb-2 items-center">
+        <strong style={{ color: `${color.tailwind}` }}>
+          {color.id.toUpperCase()}
+        </strong>
+        <span className="opacity-50"> — </span>
+        <span>{color.name}</span>
+        <span className="opacity-50"> </span>
+        <small className="text-sm opacity-50">{color.meaning}</small>
+      </div>
+      <div className="justify-between gap-2 flex-row flex">
+        {semanticLevels.map((level) => (
+          <div key={level} className="flex-auto">
+            <div className="relative cursor-pointer semantic-color-item">
+ 
+
+      <div
+ className={cn('w-full h-8 rounded semantic-color-tile',`var(--bg-red-${level})`,"var(--bg-red-`${level}`))" )}
+       style={
+        {
+          'backgroundColor': `var(--color-red-${level}, )`,
+ 
+        } 
+      }
+        ></div>
+            </div>
+            <div className="text-xs px-0.5 text-fore">{level} </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  ))}
+</Example>

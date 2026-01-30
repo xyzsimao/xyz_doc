@@ -6,7 +6,9 @@
 @plugin 'tailwindcss-animate';
 
 @theme {
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Helvetica Neue";
+  --font-serif: "Songti SC";
+  /* --font-mono: var(--font-geist-mono); */
 }
 
  

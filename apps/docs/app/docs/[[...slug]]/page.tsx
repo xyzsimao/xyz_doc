@@ -39,6 +39,7 @@ import Link from 'xyzdoc-core/link'
 import { Banner } from 'xyzdoc-ui/components/banner'
 import { Customisation } from '@/components/preview/customisation'
 import { PathUtils } from 'xyzdoc-core/source'
+import { Example } from '@/app/components/example'
 
 function PreviewRenderer({ preview }: { preview: string }): ReactNode {
   if (preview && preview in Preview) {
@@ -93,6 +94,7 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
         {page.data.preview && <PreviewRenderer preview={page.data.preview} />}
         <MDX
           components={getMDXComponents({
+            Example,
             ...Twoslash,
             a: ({ href, ...props }) => {
               const found = source.getPageByHref(href ?? '', {

@@ -74,6 +74,9 @@ importers:
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
       d3-force:
         specifier: ^3.0.0
         version: 3.0.0
@@ -86,6 +89,9 @@ importers:
       feed:
         specifier: ^5.1.0
         version: 5.2.0
+      framer-motion:
+        specifier: ^12.29.2
+        version: 12.29.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       fumadocs-openapi:
         specifier: ^10.2.4
         version: 10.2.4(@types/react-dom@19.2.3(@types/react@19.2.8))(@types/react@19.2.8)(fumadocs-core@16.4.6(@mixedbread/sdk@0.50.1)(@orama/core@1.2.16)(@oramacloud/client@2.1.4)(@tanstack/react-router@1.146.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(@types/react@19.2.8)(algoliasearch@5.46.2)(lucide-react@0.562.0(react@19.2.3))(next@16.1.0(@babel/core@7.28.6)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react-dom@19.2.3(react@19.2.3))(react-router@7.12.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react@19.2.3)(waku@1.0.0-alpha.1(@types/node@22.15.3)(jiti@2.6.1)(lightningcss@1.30.2)(react-dom@19.2.3(react@19.2.3))(react-server-dom-webpack@19.2.3(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(webpack@5.104.1))(react@19.2.3)(terser@5.46.0)(yaml@2.8.2))(zod@4.3.5))(fumadocs-ui@16.4.6(@types/react-dom@19.2.3(@types/react@19.2.8))(@types/react@19.2.8)(fumadocs-core@16.4.6(@mixedbread/sdk@0.50.1)(@orama/core@1.2.16)(@oramacloud/client@2.1.4)(@tanstack/react-router@1.146.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(@types/react@19.2.8)(algoliasearch@5.46.2)(lucide-react@0.562.0(react@19.2.3))(next@16.1.0(@babel/core@7.28.6)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react-dom@19.2.3(react@19.2.3))(react-router@7.12.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react@19.2.3)(waku@1.0.0-alpha.1(@types/node@22.15.3)(jiti@2.6.1)(lightningcss@1.30.2)(react-dom@19.2.3(react@19.2.3))(react-server-dom-webpack@19.2.3(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(webpack@5.104.1))(react@19.2.3)(terser@5.46.0)(yaml@2.8.2))(zod@4.3.5))(next@16.1.0(@babel/core@7.28.6)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(tailwindcss@4.1.18))(prettier@3.7.4)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -4972,6 +4978,20 @@ packages:
     resolution: {integrity: sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==, tarball: https://registry.npmjs.org/forwarded/-/forwarded-0.2.0.tgz}
     engines: {node: '>= 0.6'}
 
+  framer-motion@12.29.2:
+    resolution: {integrity: sha512-lSNRzBJk4wuIy0emYQ/nfZ7eWhqud2umPKw2QAQki6uKhZPKm2hRQHeQoHTG9MIvfobb+A/LbEWPJU794ZUKrg==, tarball: https://registry.npmjs.org/framer-motion/-/framer-motion-12.29.2.tgz}
+    peerDependencies:
+      '@emotion/is-prop-valid': '*'
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
+    peerDependenciesMeta:
+      '@emotion/is-prop-valid':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
+
   fresh@2.0.0:
     resolution: {integrity: sha512-Rx/WycZ60HOaqLKAi6cHRKKI7zxWbJ31MhntmtwMoaTeF7XFH9hhBp8vITaMidfljRQ6eYWCKkaTK+ykVJHP2A==, tarball: https://registry.npmjs.org/fresh/-/fresh-2.0.0.tgz}
     engines: {node: '>= 0.8'}
@@ -6056,6 +6076,12 @@ packages:
 
   mlly@1.8.0:
     resolution: {integrity: sha512-l8D9ODSRWLe2KHJSifWGwBqpTZXIXTeo8mlKjY+E2HAakaTeNpqAyBZ8GSqLzHgw4XmHmC8whvpjJNMbFZN7/g==, tarball: https://registry.npmjs.org/mlly/-/mlly-1.8.0.tgz}
+
+  motion-dom@12.29.2:
+    resolution: {integrity: sha512-/k+NuycVV8pykxyiTCoFzIVLA95Nb1BFIVvfSu9L50/6K6qNeAYtkxXILy/LRutt7AzaYDc2myj0wkCVVYAPPA==, tarball: https://registry.npmjs.org/motion-dom/-/motion-dom-12.29.2.tgz}
+
+  motion-utils@12.29.2:
+    resolution: {integrity: sha512-G3kc34H2cX2gI63RqU+cZq+zWRRPSsNIOjpdl9TN4AQwC4sgwYPl/Q/Obf/d53nOm569T0fYK+tcoSV50BWx8A==, tarball: https://registry.npmjs.org/motion-utils/-/motion-utils-12.29.2.tgz}
 
   mri@1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==, tarball: https://registry.npmjs.org/mri/-/mri-1.2.0.tgz}
@@ -12400,6 +12426,15 @@ snapshots:
 
   forwarded@0.2.0: {}
 
+  framer-motion@12.29.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
+    dependencies:
+      motion-dom: 12.29.2
+      motion-utils: 12.29.2
+      tslib: 2.8.1
+    optionalDependencies:
+      react: 19.2.3
+      react-dom: 19.2.3(react@19.2.3)
+
   fresh@2.0.0: {}
 
   fs-extra@11.3.3:
@@ -13818,6 +13853,12 @@ snapshots:
       pathe: 2.0.3
       pkg-types: 1.3.1
       ufo: 1.6.3
+
+  motion-dom@12.29.2:
+    dependencies:
+      motion-utils: 12.29.2
+
+  motion-utils@12.29.2: {}
 
   mri@1.2.0: {}
 
