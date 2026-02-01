@@ -11,6 +11,8 @@ import type { ShikiTransformer } from 'shiki'
 import type { ElementContent } from 'hast'
 import lastModified from 'xyzdoc-mdx/plugins/last-modified'
 import type { RemarkFeedbackBlockOptions } from 'xyzdoc-core/mdx-plugins'
+import { transformerTwoslash } from "xyzdoc-twoslash"
+
 
 export const docs = defineDocs({
   dir: 'content/docs',
@@ -47,7 +49,7 @@ export const docs = defineDocs({
       const { remarkFeedbackBlock } = await import(
         'xyzdoc-core/mdx-plugins/remark-feedback-block'
       )
-      const { transformerTwoslash } = await import('xyzdoc-twoslash')
+      // const { transformerTwoslash } = await import('xyzdoc-twoslash')
       const { createFileSystemTypesCache } = await import(
         'fumadocs-twoslash/cache-fs'
       )

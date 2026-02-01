@@ -30,16 +30,11 @@ import { semanticColors, semanticLevels } from './color.ts'
         {semanticLevels.map((level) => (
           <div key={level} className="flex-auto">
             <div className="relative cursor-pointer semantic-color-item">
- 
-
       <div
- className={cn('w-full h-8 rounded semantic-color-tile',`var(--bg-red-${level})`,"var(--bg-red-`${level}`))" )}
+ className={cn('w-full h-8 rounded semantic-color-tile', `bg-${color.tailwind}-${level}` )}
        style={
-        {
-          'backgroundColor': `var(--color-red-${level}, )`,
- 
-        } 
-      }
+        {'backgroundColor': `var(--color-${color.tailwind}-${level}, )`, } 
+        }
         ></div>
             </div>
             <div className="text-xs px-0.5 text-fore">{level} </div>
