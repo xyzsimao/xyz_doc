@@ -42,6 +42,7 @@ import { PathUtils } from 'xyzdoc-core/source'
 import { Example } from '@/components/example'
 import { NotFound } from '@/components/not-found'
 import { getSuggestions } from './suggestions'
+import { Separator } from '@/components/ui/separator'
 
 function PreviewRenderer({ preview }: { preview: string }): ReactNode {
   if (preview && preview in Preview) {
@@ -87,8 +88,9 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
         style: 'clerk',
         footer: (
           <div className="my-3 space-y-3">
-            {/* <LLMCopyButton markdownUrl={`${page.url}.mdx`} /> */}
-            {/* <ViewOptions
+            {/* <LLMCopyButton markdownUrl={`${page.url}.mdx`} />
+            <Separator />
+            <ViewOptions
               markdownUrl={`${page.url}.mdx`}
               githubUrl={`https://github.com/${owner}/${repo}/blob/dev/apps/docs/content/docs/${page.path}`}
             /> */}
@@ -106,13 +108,13 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
       <p className="text-lg text-fd-muted-foreground mb-2">
         {page.data.description}
       </p>
-      {/* <div className="flex flex-row gap-2 items-center border-b pt-2 pb-6">
+      <div className="flex flex-row gap-2 items-center border-b pt-2 pb-6">
         <LLMCopyButton markdownUrl={`${page.url}.mdx`} />
         <ViewOptions
           markdownUrl={`${page.url}.mdx`}
-          githubUrl={`https://github.com/${owner}/${repo}/blob/dev/apps/docs/content/docs/${page.path}`}
+          githubUrl={`https://github.com/${owner}/${repo}/blob/main/apps/docs/content/docs/${page.path}`}
         />
-      </div> */}
+      </div>
       <div className="prose flex-1 text-fd-foreground/90">
         {page.data.preview && <PreviewRenderer preview={page.data.preview} />}
         <MDX
