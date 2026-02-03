@@ -165,7 +165,7 @@ export function CreateAppAnimation() {
       className="relative mt-4 w-full mx-auto max-w-[800px]"
       onMouseEnter={() => {
         if (tick >= timeEnd) {
-          setTick(0);
+          setTick(0)
         }
       }}
     >
@@ -174,7 +174,8 @@ export function CreateAppAnimation() {
       )}
       <pre className="overflow-hidden rounded-xl border text-sm shadow-lg bg-fd-card">
         <div className="flex flex-row items-center gap-2 border-b px-4 py-2">
-          <TerminalIcon className="size-4" /> <span className="font-bold">Terminal</span>
+          <TerminalIcon className="size-4" />{' '}
+          <span className="font-bold">Terminal</span>
           <div className="grow" />
           <div className="size-2 rounded-full bg-red-400" />
         </div>
@@ -183,7 +184,7 @@ export function CreateAppAnimation() {
         </div>
       </pre>
     </div>
-  );
+  )
 }
 
 function LaunchAppWindow(props: HTMLAttributes<HTMLDivElement>) {

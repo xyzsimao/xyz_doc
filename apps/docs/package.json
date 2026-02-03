@@ -52,6 +52,7 @@
     "xyzdoc-twoslash": "workspace:*",
     "xyzdoc-typescript": "workspace:*",
     "xyzdoc-ui": "workspace:*",
+    "xyzdoc-openapi": "workspace:*",
     "zod": "^4.3.5"
   },
   "devDependencies": {

@@ -39,7 +39,9 @@ import Link from 'xyzdoc-core/link'
 import { Banner } from 'xyzdoc-ui/components/banner'
 import { Customisation } from '@/components/preview/customisation'
 import { PathUtils } from 'xyzdoc-core/source'
-import { Example } from '@/app/components/example'
+import { Example } from '@/components/example'
+import { NotFound } from '@/components/not-found'
+import { getSuggestions } from './suggestions'
 
 function PreviewRenderer({ preview }: { preview: string }): ReactNode {
   if (preview && preview in Preview) {
@@ -53,7 +55,28 @@ function PreviewRenderer({ preview }: { preview: string }): ReactNode {
 export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
   const params = await props.params
   const page = source.getPage(params.slug)
-  if (!page) notFound()
+
+  if (!page)
+    return (
+      <NotFound
+        getSuggestions={async () =>
+          params.slug ? getSuggestions(params.slug.join(' ')) : []
+        }
+      />
+    )
+
+  if (page.data.type === 'openapi') {
+    const { APIPage } = await import('@/components/api-page')
+    return (
+      <DocsPage full>
+        <h1 className="text-[1.75em] font-semibold">{page.data.title}</h1>
+
+        <DocsBody>
+          <APIPage {...page.data.getAPIPageProps()} />
+        </DocsBody>
+      </DocsPage>
+    )
+  }
 
   const MDX = page.data.body
 

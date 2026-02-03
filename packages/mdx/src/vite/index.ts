@@ -68,8 +68,8 @@ export default async function mdx(
           noExternal: [
             'xyzdoc-core',
             'xyzdoc-ui',
-            'fumadocs-core',
-            'fumadocs-ui',
+            'xyzdoc-core',
+            'xyzdoc-ui',
             'fumadocs-openapi',
             '@fumadocs/base-ui',
             '@xyzdoc/ui',

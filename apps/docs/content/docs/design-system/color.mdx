@@ -31,10 +31,8 @@ import { semanticColors, semanticLevels } from './color.ts'
           <div key={level} className="flex-auto">
             <div className="relative cursor-pointer semantic-color-item">
       <div
- className={cn('w-full h-8 rounded semantic-color-tile', `bg-${color.tailwind}-${level}` )}
-       style={
-        {'backgroundColor': `var(--color-${color.tailwind}-${level}, )`, } 
-        }
+ className={`w-full h-8 rounded semantic-color-tile, bg-${color.tailwind}-${level}`  }
+  
         ></div>
             </div>
             <div className="text-xs px-0.5 text-fore">{level} </div>
@@ -44,3 +42,7 @@ import { semanticColors, semanticLevels } from './color.ts'
     </div>
   ))}
 </Example>
+
+<Callout title="Want to learn more?">
+  点击调色板中的颜色，可以复制颜色变量名称方便在代码中使用。
+</Callout>
